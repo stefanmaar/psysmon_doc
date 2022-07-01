@@ -1,0 +1,72 @@
+    <div class="grid-x">
+        <div class="cell">
+            <ul id="up-to-top" class="menu float-right">
+                <li><a href="#top-of-page" title="to the top of the page"><i class="fas fa-chevron-up fa-2x"></i></a></li>
+            </ul>
+        </div>
+    </div><!-- /.row -->
+
+
+    <footer id="footer-content" class="bg-grau">
+        <div id="footer" class="grid-x grid-padding-x full">
+          <div class="cell small-8 medium-9">
+            <h5>Imprint</h5>
+
+            <p>
+             Mertl Research GmbH, Kienmayergasse 22, 1140 Wien<br>
+            FB-Nr.: 378631 k, Firmengericht: Handelsgericht Wien, UID: ATU67233013<br>
+            <a href="http://www.wkoecg.at/Web/Ecg.aspx?FirmaID=c2b49d2a-4694-4d9b-b5e3-e1b495d24757" target="_blank">Informationspflicht laut ECG und Mediengesetz</a>&nbsp;&nbsp;<a href="assets/doc/agb_mertl_research_version_20121108.pdf">AGB</a>&nbsp;&nbsp;<a href="{{ site.url }}{{ site.baseurl }}/data-privacy-statement/">data privacy statement</a><br>
+
+                    Copyright © Mertl Research GmbH<br>
+              <a href="{{ site.url }}{{ site.baseurl }}/info/">{{ site.data.language.more }}</a>
+            </p>
+          </div>
+
+
+          <div class="cell small-4 medium-3">
+              {% comment %}
+                {% for service_item in site.data.services %}
+                  {% if forloop.first == true %}
+                    <h5>{{ service_item.menu_name }}</h5>
+                  {% endif %}
+                {% endfor %}
+
+              <ul class="no-bullet">
+              {% for service_item in site.data.services %}
+                {% if service_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
+                  <li {% if service_item.class %}class="{{ service_item.class }}" {% endif %}>
+                    <a href="{{ domain }}{{ service_item.url }}" {% if service_item.url contains 'http' %}target="_blank" {% endif %} title="{{ service_item.title }}">{{ service_item.name }}</a>
+                  </li>
+              {% endfor %}
+              </ul>
+              {% endcomment %}
+
+            <h5>Follow me</h5>
+            <ul class="menu">
+                {% for social_item in site.data.socialmedia %}
+                <li><a href="{{ social_item.url }}" target="_blank" title="{{ social_item.title }}"><i class="{{ social_item.class }} fa-3x"></i></a></li>
+                {% endfor %}
+            </ul>
+          </div><!-- /.large-4.columns -->
+
+        </div><!-- /.row -->
+
+
+      {% comment %}
+      <div id="subfooter">
+        <nav class="row">
+          <section id="subfooter-left" class="small-12 medium-6 columns">
+          <h5>Follow me on social media</h5>
+          </section>
+
+          <section id="subfooter-right" class="small-12 medium-6 columns">
+            <ul class="inline-list social-icons">
+            {% for social_item in site.data.socialmedia %}
+            <li><a {% if social_item.name == Mastodon %}rel="me"{% endif %} href="{{ social_item.url }}" target="_blank" title="{{ social_item.title }}"><i class="fab {{ social_item.class }} fa-3x"></i>mastodon</a></li>
+            {% endfor %}
+            </ul>
+          </section>
+        </nav>
+      </div><!-- /#subfooter -->
+      {% endcomment %}
+    </footer>

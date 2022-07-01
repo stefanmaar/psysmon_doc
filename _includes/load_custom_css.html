@@ -1,0 +1,21 @@
+<!-- Checking custom_css of the layouts -->
+{% if layout.custom_css %}
+    <!-- custom_css found: {{ layout.custom_css }} -->
+    {% for custom_css in layout.custom_css %}
+        <!-- Scripts of {{ custom_css[0] }}. -->
+        {% for css_file in custom_css[1] %}
+        <link href="{{ '/assets/css/' | append: css_file  | relative_url }}" rel="stylesheet" type="text/css" />
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+<!-- Checking custom_css of the page -->
+{% if page.custom_css %}
+    <!-- custom_css found: {{ page.custom_css }} -->
+    {% for custom_css in page.custom_css %}
+        <!-- Scripts of {{ custom_css[0] }}. -->
+        {% for css_file in custom_css[1] %}
+        <link href="{{ 'assets/css/' | append: css_file  | relative_url }}" rel="stylesheet" type="text/css" />
+        {% endfor %}
+    {% endfor %}
+{% endif %}

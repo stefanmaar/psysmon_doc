@@ -1,0 +1,172 @@
+/* Main content container
+------------------------------------------------------------------- */
+#main_content {
+    margin-top: 30px;
+}
+
+/* Page Metadata
+------------------------------------------------------------------- */
+#page-meta {
+    padding-top: 30px;
+}
+
+/* Jump to top
+------------------------------------------------------------------- */
+#up-to-top {
+    padding: 100px 0 10px 0;
+}
+#up-to-top a {
+    padding: 5px;
+    border-radius: 3px;
+}
+#up-to-top a:hover {
+    background: $grey-2;
+}
+
+/* Footer
+------------------------------------------------------------------- */
+#footer-content p,
+#footer-content li {
+    font-size: rem-calc(13);
+    font-weight: 300;
+}
+
+#footer {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background: $footer-bg;
+    color: $footer-color;
+    }
+
+    #footer a {
+        color: $footer-link-color;
+    }
+    #footer h4,
+    #footer h5 {
+        letter-spacing: 1px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+/* Blog Items
+------------------------------------------------------------------- */
+.blog_heading {
+    background-color: black;
+    padding-left: 5px;
+    color: white;
+    margin-bottom: 0;
+    @include breakpoint(small) {
+        font-size: rem-calc(16);
+    }
+    @include breakpoint(medium) {
+        font-size: rem-calc(18);
+    }
+    @include breakpoint(large) {
+        font-size: rem-calc(20);
+    }
+
+    a {
+        color: white;
+    }
+}
+
+[id^=post] {
+    .subheadline {
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+article .subheadline {
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+/* Frontpage Widgets
+------------------------------------------------------------------- */
+#frontpage-widgets {
+    .widget_heading {
+        background-color: black;
+        padding-left: 5px;
+        color: white;
+        margin-bottom: 0;
+        @include breakpoint(small) {
+            font-size: rem-calc(16);
+        }
+        @include breakpoint(medium) {
+            font-size: rem-calc(18);
+        }
+        @include breakpoint(large) {
+            font-size: rem-calc(20);
+        }
+
+        a {
+            color: white;
+        }
+    }
+}
+
+/* Featured Posts
+------------------------------------------------------------------- */
+#featured-posts {
+    .featured_heading {
+        background-color: black;
+        padding-left: 5px;
+        color: white;
+        margin-bottom: 0;
+        @include breakpoint(small) {
+            font-size: rem-calc(16);
+        }
+        @include breakpoint(medium) {
+            font-size: rem-calc(18);
+        }
+        @include breakpoint(large) {
+            font-size: rem-calc(20);
+        }
+
+        a {
+            color: white;
+        }
+    }
+
+    .subheadline {
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+/* Images
+------------------------------------------------------------------- */
+img { border-radius: $global-radius;}
+img.alignleft,
+img.left        { float: left; margin:5px 15px 5px 0; }
+img.alignright,
+img.right       { float: right; margin:5px 0 5px 15px; }
+img.aligncenter,
+img.center      { display: block; margin:0 auto 10px; }
+
+figure {
+    margin: 0 0 rem-calc(30) 0;
+}
+
+figcaption {
+    color: $grey-10;
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(13);
+    padding-top: rem-calc(2);
+
+    a {
+        border-bottom: 1px dotted $grey-4;
+        color: $grey-10;
+
+        &:hover {
+            border-bottom: 2px solid $primary-color;
+            color: $primary-color;
+        }
+    }
+
+    .center-caption {
+        text-align: center;
+    }
+}
+

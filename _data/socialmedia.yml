@@ -1,0 +1,15 @@
+- name: Mastodon
+  url: https://mastodon.social/@mertlresearch
+  class: fab fa-mastodon
+  title: "Follow me on Mastodon."
+
+- name: Github
+  url: https://github.com/stefanmaar
+  class: fab fa-github
+  title: Github
+  
+- name: Atom
+  url: /feed.xml
+  class: fas fa-atom
+  title: Atom Feed
+

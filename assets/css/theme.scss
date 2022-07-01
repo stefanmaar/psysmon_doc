@@ -1,0 +1,102 @@
+---
+sitemap:
+    exclude: true
+---
+
+// Components for javascript downloads.
+// xy-grid
+// typography
+// float classes
+// visibility classes
+// buttons
+// menu
+// top bar
+// accordion
+// off canvas
+// orbit
+// sticky
+
+
+// --- Foundation components. ---
+// --- Dependencies ---
+@import 'foundation/vendor/normalize';
+@import 'foundation/vendor/sassy-lists/stylesheets/helpers/missing-dependencies';
+@import 'foundation/vendor/sassy-lists/stylesheets/helpers/true';
+@import 'foundation/vendor/sassy-lists/stylesheets/functions/contain';
+@import 'foundation/vendor/sassy-lists/stylesheets/functions/purge';
+@import 'foundation/vendor/sassy-lists/stylesheets/functions/remove';
+@import 'foundation/vendor/sassy-lists/stylesheets/functions/replace';
+@import 'foundation/vendor/sassy-lists/stylesheets/functions/to-list';
+
+// Import default settings
+@import 'foundation/settings';
+
+// Import custom settings
+@import 'theme/01_custom_foundation_settings';
+
+// Utilities
+@import 'foundation/util/util';
+
+// Global styles
+@import 'foundation/global';
+@import 'foundation/typography/typography';
+
+// Grid
+@import "foundation/xy-grid/xy-grid";
+
+// Navigation
+@import "foundation/components/menu";
+@import "foundation/components/title-bar";
+@import "foundation/components/top-bar";
+@import "foundation/components/sticky";
+@import "foundation/components/menu-icon";
+
+// Containers
+@import "foundation/components/accordion";
+@import "foundation/components/off-canvas";
+
+// Orbit slider
+@import "foundation/components/orbit";
+@import "foundation/components/button";
+@import "foundation/vendor/motion-ui/motion-ui";
+
+// Forms
+@import "foundation/components/switch";
+
+// Helpers
+@import 'foundation/components/float';
+@import 'foundation/components/flex';
+@import 'foundation/components/visibility';
+
+
+// Activate the components
+@include foundation-accordion;
+@include foundation-global-styles;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-off-canvas;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-top-bar;
+@include foundation-typography;
+@include foundation-xy-grid-classes;
+
+// Parts needed for the orbit slider.
+@include foundation-orbit;
+@include foundation-button;
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Forms
+@include foundation-switch;
+
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+
+// --- Custom Theme Styles ---
+//@import "frontpage_layout";
+@import "theme/02_colors";
+@import "theme/03_navigation";
+@import "theme/04_main_layout";

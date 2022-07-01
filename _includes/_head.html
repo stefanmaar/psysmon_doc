@@ -1,0 +1,36 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{% if page.meta_title %}{{ page.meta_title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+{% comment %}
+<link rel="stylesheet" type="text/css" href="{{ 'assets/fonts/latofonts.css' | relative_url }}">
+<script src="{{ 'assets/js/modernizr.min.js' | relative_url }}"></script>
+{% endcomment %}
+
+{% if page.meta_description %}<meta name="description" content="{{ page.meta_description | strip_html | escape }}"/>{% elsif page.description %}<meta name="description" content="{{ page.description | strip_html | escape }}" />{% elsif page.teaser %}<meta name="description" content="{{ page.teaser | strip_html | escape }}" />{% elsif site.description %}<meta name="description" content="{{ site.description | strip_html | escape }}" />{% endif %}
+
+{% include _favicon.html %}
+
+<!-- Facebook Optimization -->
+<meta property="og:locale" content="{% if site.og_locale == nil %}en_EN{% else %}{{ site.og_locale }}{% endif %}" />
+{% if site.og_type %}<meta property="og:type" content="website" />{% endif %}
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+{% if page.meta_description %}<meta property="og:description" content="{{ page.meta_description | strip_html | escape }}" />{% elsif page.description %}<meta property="og:description" content="{{ page.description | strip_html | escape }}"/>{% elsif page.teaser %}<meta property="og:description" content="{{ page.teaser | strip_html | escape }}"/>{% elsif site.description %}<meta property="og:description" content="{{ site.description | strip_html | escape }}" />{% endif %}
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/{{ page.url }}" />
+{% if site.title %}<meta property="og:site_name" content="{{ site.title }}" />{% endif %}
+{% if page.image.thumb %}<meta property="og:image" content="{{ site.urlimg }}{{ page.image.thumb }}" />{% endif %}
+
+{% if site.alexa_verify_id %}<meta name="alexaVerifyID" content="{{ site.alexa_verify_id }}" />{% endif %}
+
+<!-- Search Engine Optimization -->
+{% if page.noindex == true %}<meta name="robots" content="noindex" />{% endif %}
+
+<link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt">
+
+<!-- Mastodon site verification -->
+<link rel="me" href="https://mastodon.social/@mertlresearch">
+
+{% unless page.style == NULL %}
+<style type="text/css">{{ page.style }}</style>
+{% endunless %}
+
+<script async defer data-website-id="fb089516-4e05-40fb-9c0c-39e0b9c600cf" src="https://taubi.mertl-research.at/mr_cookieless_webanalyze.js"></script>

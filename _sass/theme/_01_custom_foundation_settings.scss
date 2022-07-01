@@ -1,0 +1,79 @@
+/* The custom Foundation settings. */
+
+
+// 1. Global
+//----------------------------------------------------------------
+$ci-dark-blue: #1B9DD1;		// petrol
+$ci-light-blue: #94E1FF;	// light-blue
+$ci-flat-blue: #69BBDB;		// flat-blue
+$ci-brown: #8F5E28;		// brown
+$ci-sand: #DBA569;		// sand
+
+$foundation-palette: (
+  primary: $ci-dark-blue,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
+
+@include add-foundation-colors;
+
+$global-radius: 0;
+
+
+// 4. Base Typography
+//----------------------------------------------------------------
+$header-styles: (
+  small: (
+    'h1': ('font-size': 20),
+    'h2': ('font-size': 19),
+    'h3': ('font-size': 18),
+    'h4': ('font-size': 17),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 15),
+  ),
+  medium: (
+    'h1': ('font-size': 40),
+    'h2': ('font-size': 31),
+    'h3': ('font-size': 25),
+    'h4': ('font-size': 20),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 14),
+  ),
+);
+
+$font-family-sans-serif: "LatoWeb", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: "Volkhov", Georgia, Times, serif;
+$font-family-monospace: "Lucida Console", Monaco, monospace;
+$font-family-bold: "LatoWebHeavy";
+
+$body-font-family: $font-family-sans-serif;
+$body-font-weight: normal;
+$body-font-style: normal;
+
+$header-font-family: $font-family-bold;
+
+$anchor-color: $primary-color;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -15%);
+$button-hollow-border-width: 1px;
+
+
+
+
+// 7. Accordion
+//----------------------------------------------------------------
+$accordion-title-font-size: rem-calc(16);
+
+
+// 11. Button
+//----------------------------------------------------------------
+$button-background: $primary-color;
+$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-radius: 2px;
+$button-responsive-expanded: true;
+
+
+// 55. Top Bar
+//----------------------------------------------------------------
+$topbar-background: $white;

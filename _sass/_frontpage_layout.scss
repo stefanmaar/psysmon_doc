@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "CMOD Subotron LightLevel";
+    src: url("../fonts/CMOD-Subotron_LightLevel.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "CMOD Subotron RegularLevel";
+    src: url("../fonts/CMOD-Subotron_RegularLevel.otf") format("opentype");
+}
+
+
+div.project-title {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.project-title h1,h2,h3,h4,h5,h6 {
+    font-family: "CMOD Subotron RegularLevel";
+}
+
+.subotron {
+    font-family: "CMOD Subotron RegularLevel";
+}
+
+div.project-description{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.menu {
+    font-family: "CMOD Subotron RegularLevel";
+}
+
+#top-nav li.active_nav {
+    background-color: $body-background;
+}
+
+#top-nav li {
+    text-transform: uppercase;
+    font-size: 14;
+    font-weight: normal;
+}
+
+#top-nav .menu-text {
+    color: $secondary-color;
+}
+
+#photobook-title {
+    text-align: right;
+    padding-right: 15px;
+}
+
+button.photobook {
+    font-size: 40px;
+    color: $black;
+    bottom: 0px !important;
+    top: inherit;
+    transform: translateY(-22px);
+    outline: 0;
+}
+
+#content :focus {
+    outline: 0;
+}
+
+.off-canvas-index {
+    @include breakpoint(small only) {
+        height: 66%;
+    }
+    @include breakpoint(medium only) {
+        height: 49%;
+    }
+    @include breakpoint(large only) {
+        height: 33%;
+    }
+    transform: translateY(100%);
+
+    .title {
+        color: $light-gray;
+    }
+
+    .heading {
+        color: $light-gray;
+    }
+
+    .content {
+        color: $light-gray;
+    }
+}
+
+.off-canvas-about {
+    height: 75%;
+    transform: translateY(100%);
+
+    .title {
+        color: $light-gray;
+    }
+
+    .heading {
+        color: $light-gray;
+    }
+
+    .content {
+        color: $light-gray;
+    }
+}
+
+

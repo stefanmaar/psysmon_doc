@@ -1,0 +1,22 @@
+<!-- Checking custom_js of the layouts -->
+{% if layout.custom_js %}
+    <!-- custom_js found: {{ layout.custom_js }}-->
+    {% for custom_js in layout.custom_js %}
+        <!-- Scripts of {{ custom_js[0] }}. -->
+        {% for js_file in custom_js[1] %}
+            <script src="{{ 'assets/js/' | append: js_file | relative_url }}" type="text/javascript"></script>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+<!-- Checking custom_js of the page -->
+{% if page.custom_js %}
+    <!-- page found: {{ page.custom_js }}-->
+    {% for custom_js in page.custom_js %}
+        <!-- Scripts of {{ custom_js[0] }}. -->
+        {% for js_file in custom_js[1] %}
+            <script src="{{ 'assets/js/' | append: js_file | relative_url }}" type="text/javascript"></script>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+

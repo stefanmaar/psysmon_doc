@@ -1,0 +1,67 @@
+<div data-sticky-container>
+    <div id="navigation" class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;" style="width: 100%">
+        <div id="small-top-nav" class="title-bar" data-responsive-toggle="top-nav" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="top-nav"></button>
+            <div class="title-bar-title">Menu</div>
+            <div class="title-bar-logo"><a href="{% translate_link index  %}" title="Take me to the main page.">{% translate global.title %}</a></div>
+        </div>
+        <div id="top-nav" class="top-bar">
+            <div class="top-bar-title hide-for-small-only">
+                <ul class="menu simple">
+                    <li class="top-bar-title-logo">
+                        <a href="{% translate_link posts-20170107-generative_logo %}">
+                            <img src="{{site.urlimg}}generative_logo/mr_gen_logo.png" class="header_logo" alt="This is a generative logo based on seismic data." title="This is a generative logo based on seismic data. Click to learn more." style="float:left;"\>
+                        </a>
+                    </li>
+                    <li class="top-bar-title-name"> 
+                        <a href="{% translate_link index | relative_url %}" title="Take me to the main page.">{% translate global.title %}</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="top-bar-left">
+                <ul class="menu vertical medium-horizontal">
+                  {% for item in site.data.navigation.left %}
+                    {% capture cur_link %}{% translate_link item.namespace %}{% endcapture %}
+                    <li {% if cur_link == page.url %} class="active_nav"{% endif %}><a href="{% if cur_link != '/index.html' %}{{ cur_link | relative_url}}{% else %}/{% endif %}">{% translate pages.{{item.title}} %}</a></li>
+                  {% endfor %}
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu vertical medium-horizontal">
+                    {% for item in site.data.navigation.right %}
+                      {% capture cur_link %}{% translate_link item.namespace %}{% endcapture %}
+                      <li {% if cur_link == page.url %} class="active_nav"{% endif %}><a href="{% if cur_link != '/index.html' %}{{ cur_link | relative_url}}{% else %}/{% endif %}">{% translate pages.{{item.title}} %}</a></li>
+                    {% endfor %}
+
+                    <!-- The language selector. -->
+                    {% if page.lang == "de" %}
+                      {% capture link_en %}{% translate_link {{page.namespace}} -l en %}{% endcapture %}
+                      {% comment %}{% assign link_en = translate_link {{page.namespace}} -l en %}{% endcomment %}
+                      {% if link_en != "" %}
+                        <li>
+                          <a href="{{ link_en | relative_url }}" >{% translate languages.english %}</a>
+                        </li>
+                      {% else %}  
+                        <li class="inactive">
+                          <a href="{{ link_en | relative_url }}" alt="Sorry, no translation available."class="inactive" >{% translate languages.english %}</a>
+                        </li>
+                      {% endif %}
+                    {% elsif page.lang == "en" %}
+                      {% capture link_de %}{% translate_link {{page.namespace}} -l de %}{% endcapture %}
+                      {% comment %}{% assign link_en = translate_link {{page.namespace}} -l en %}{% endcomment %}
+                      {% if link_de != "" %}
+                        <li> 
+                          <a href="{{ link_de | relative_url }}" >{% translate languages.german %}</a>
+                        </li>
+                      {% else %}
+                        <li class="inactive">
+                          <a href="{{ link_de | relative_url }}" alt="Sorry, no translation available."class="inactive" >{% translate languages.german %}</a>
+                        </li>
+                      {% endif %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div><!-- #top-nav -->
+    </div><!-- #navigation -->
+</div><!-- data-sticky-container -->

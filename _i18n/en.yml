@@ -1,0 +1,26 @@
+languages:
+    german: Deutsch
+    english: English
+pages:   
+    info: Info
+    contact: Contact
+scholar:
+    article: Journal Articles
+    book: Books
+    conference_presentation: Presentations at Conferences
+    incollection: Chapters in Books
+    inproceedings: Articles in Proceedings
+    misc: Miscellaneous
+    phdthesis: Dissertations
+    report: Reports
+    theses_at_schools: Final Thesis at Schools
+global:
+    title: psysmon Documentation
+    data_privacy_statement: data privacy statement
+    follow_me: follow me
+    imprint: imprint
+    more: more
+    next_page: nächste Seite
+    previous_page: vorherige Seite
+    read_more: read more
+    

@@ -1,0 +1,210 @@
+# ASCII-Font › http://patorjk.com/software/taag/#p=display&f=Slant&t=Phlow
+#
+#      _____ _ __          _____      __  __  _                 
+#     / ___/(_) /____     / ___/___  / /_/ /_(_)___  ____ ______
+#     \__ \/ / __/ _ \    \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/
+#    ___/ / / /_/  __/   ___/ /  __/ /_/ /_/ / / / / /_/ (__  ) 
+#   /____/_/\__/\___/   /____/\___/\__/\__/_/_/ /_/\__, /____/  
+#                                                 /____/        
+#
+# Title of your website
+title: "Psysmon Documentation"
+
+
+# The slogan describes your website and is used on homepage in <title> and other important places
+slogan: "A seismological prototyping software."
+
+
+# The description is used on homepage and in the footer to quickly describe your website. Use a maximum of 150 characters for SEO-purposes.
+description: "Mertl Research GbmH is an engineering consultants company (member of the Austrian Association of Consulting Engineer) providing services in seismic monitoring and geoscience software development with a focus on free software, openess and trasparency."
+
+# Main author of the website
+# See > authors.yml
+author: stefan
+
+# This URL is the main address for absolute links. Don't include a slash at the end.
+#
+url: 'https://psysmon.mertl-research.at'
+baseurl: ''
+
+# This is for the editing function in _/includes/improve_content
+# Leave it empty if your site is not on GitHub/GitHub Pages
+improve_content: 
+
+# This URL points directly to the images directory making
+# things easier to link to images in posts and templates. It needs a slash at the end.
+#
+# Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
+# Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
+#
+urlimg: '/images/'
+
+
+# Logo size is 600x80 pixels
+logo: "logo.png"
+
+
+# Theme works best with Kramdown (using the table of contents function)
+markdown: kramdown
+permalink: /:categories/:title/
+highlight: rouge
+plugins: [jekyll-paginate-v2,
+          jekyll-scholar,
+          jekyll-feed]
+excerpt_separator: "<!--more-->"
+include: ['.htaccess', '_pages_common']
+# Exclude these files from your production _site
+exclude:
+    - .sass-cache
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+    - INSTALL.md
+    - csync_ignore.conf
+    - sync_site.bash
+
+
+# Used › default.html front-matter and compress.html
+# Options › http://jch.penibelst.de
+# The environment is set using JEKYLL_ENV when starting the server. Using no
+# argument sets JEKYLL_ENV to development.
+# The blanklines setting is important to keep inline javascript working.
+# Otherwise, comments will comment all the following code, because the whole
+# content is put into one line.
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: []
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+
+
+
+#      ____              _             __  _                _    _____ 
+#     / __ \____ _____ _(_)___  ____ _/ /_(_)___  ____     | |  / /__ \
+#    / /_/ / __ `/ __ `/ / __ \/ __ `/ __/ / __ \/ __ \    | | / /__/ /
+#   / ____/ /_/ / /_/ / / / / / /_/ / /_/ / /_/ / / / /    | |/ // __/ 
+#  /_/    \__,_/\__, /_/_/ /_/\__,_/\__/_/\____/_/ /_/     |___//____/ 
+#              /____/                                                  
+#
+# Pagination V2
+pagination:
+  # Site-wide kill switch, disabled here it doesn't run at all 
+  enabled: true
+
+  # Set to 'true' to enable pagination debugging. This can be enabled in the site config or only for individual pagination pages
+  debug: false
+
+  # The default document collection to paginate if nothing is specified ('posts' is default)
+  collection: 'posts'
+
+  # How many objects per paginated page, used to be `paginate` (default: 0, means all)
+  per_page: 8
+
+  # The permalink structure for the paginated pages (this can be any level deep)
+  permalink: '/page/:num/' # Pages are index.html inside this folder (default)
+
+  # Optional, sorts the posts in reverse order (omit to default decending or sort_reverse: true)
+  sort_reverse: true
+
+  trail: 
+         before: 2 # The number of links before the current page
+         after: 2  # The number of links after the current page
+
+
+#
+#       ____       ____            ____
+#      / __ \___  / __/___ ___  __/ / /_
+#     / / / / _ \/ /_/ __ `/ / / / / __/
+#    / /_/ /  __/ __/ /_/ / /_/ / / /_
+#   /_____/\___/_/  \__,_/\__,_/_/\__/
+#
+# Default Settings
+
+defaults:
+
+  -
+    scope:
+      path: "" 				# an empty string here means all files in the project
+      type: "pages"
+    values:
+      header: no
+      show_meta: false 	# Hide metadata for all pages
+      # sidebar:    		# Possible values › left, right › by default there will be no sidebar
+      comments: false
+      author: Stefan Mertl     # Default author for pages
+
+
+
+#      __  ___      ____  _    __                                           
+#     /  |/  /_  __/ / /_(_)  / /   ____ _____  ____ ___  ______ _____ ____ 
+#    / /|_/ / / / / / __/ /  / /   / __ `/ __ \/ __ `/ / / / __ `/ __ `/ _ \
+#   / /  / / /_/ / / /_/ /  / /___/ /_/ / / / / /_/ / /_/ / /_/ / /_/ /  __/
+#  /_/  /_/\__,_/_/\__/_/  /_____/\__,_/_/ /_/\__, /\__,_/\__,_/\__, /\___/ 
+#                                            /____/            /____/     
+multilang:
+    languages: ["de", "en"]
+    default_language: "de"
+
+
+#     _____      __          __          
+#    / ___/_____/ /_  ____  / /___ ______
+#    \__ \/ ___/ __ \/ __ \/ / __ `/ ___/
+#   ___/ / /__/ / / / /_/ / / /_/ / /    
+#  /____/\___/_/ /_/\____/_/\__,_/_/
+#
+
+scholar:
+    style: ./_bibliography/ieee.csl
+    #style: ieee
+    locale: en
+
+    source: ./_bibliography
+    bibliography: references.bib
+    bibliography_template: bibtemplate
+
+    bibliography_list_tag: ul
+    bibliography_group_tag: strong
+
+    type_order: [article, phdthesis, inproceedings, techreport, misc]
+    type_aliases: {report: techreport}
+
+
+
+#       ______            _
+#      / ____/___ __   __(_)________  ____  _____
+#     / /_  / __ `/ | / / / ___/ __ \/ __ \/ ___/
+#    / __/ / /_/ /| |/ / / /__/ /_/ / / / (__  )
+#   /_/    \__,_/ |___/_/\___/\____/_/ /_/____/   Favicon-Crap: Favicons, Chrome, Android & Apple Touch Buttons
+#                                                 More information » https://mathiasbynens.be/notes/touch-icons
+
+favicon-32x32:                          "images/generative_logo/mr_gen_logo.png"
+#touch-icon-192x192:                     "touch-icon-192x192.png"
+#apple-touch-icon-180x180-precomposed:   "apple-touch-icon-180x180-precomposed.png"
+#apple-touch-icon-152x152-precomposed:   "apple-touch-icon-152x152-precomposed.png"
+#apple-touch-icon-144x144-precomposed:   "apple-touch-icon-144x144-precomposed.png"
+#apple-touch-icon-120x120-precomposed:   "apple-touch-icon-120x120-precomposed.png"
+#apple-touch-icon-114x114-precomposed:   "apple-touch-icon-114x114-precomposed.png"
+#apple-touch-icon-76x76-precomposed:     "apple-touch-icon-76x76-precomposed.png"
+#apple-touch-icon-72x72-precomposed:     "apple-touch-icon-72x72-precomposed.png"
+#apple-touch-icon-precomposed:           "apple-touch-icon-precomposed.png"
+#msapplication_tileimage:                "msapplication_tileimage.png"               # Size 144x144
+#msapplication_tilecolor:                "#fabb00"
+
+
+
+#      _____
+#     / ___/____ ___________
+#     \__ \/ __ `/ ___/ ___/
+#    ___/ / /_/ (__  |__  )     More › http://sass-lang.com/
+#   /____/\__,_/____/____/      More › http://jekyllrb.com/docs/assets/#sassscss
+#
+
+sass:
+    sass_dir: _sass
+    style: :compressed
+

@@ -1,0 +1,27 @@
+languages:
+    german: Deutsch
+    english: English
+site:
+    title: psysmon Dokumentation
+pages:   
+    info: Info
+    contact: Kontakt
+scholar:
+    article: Journalartikel
+    book: Bücher
+    conference_presentation: Präsentationen auf Konferenzen
+    incollection: Kapitel in Büchern
+    inproceedings: Artikel in Tagungsbänden
+    misc: Sonstige
+    phdthesis: Dissertationen
+    report: Berichte
+    theses_at_schools: Abschlussarbeiten an Schulen
+global:
+    title: psysmon Dokumentation
+    data_privacy_statement: Datenschutzerklärung
+    follow_me: folge mir
+    imprint: Impressum
+    more: mehr
+    next_page: nächste Seite
+    previous_page: vorherige Seite
+    read_more: mehr lesen

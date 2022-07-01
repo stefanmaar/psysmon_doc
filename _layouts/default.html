@@ -1,0 +1,38 @@
+---
+layout: compress
+
+custom_js:
+    default:
+        - foundation/vendor/jquery.js
+        - foundation/vendor/foundation.min.js
+        - foundation/app.js
+
+custom_css:
+    default:
+        - fontawesome-all.css
+        - latofonts.css
+        - theme.css
+
+---
+<!doctype html>
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+<head>
+	{% include _head.html %}
+    {% include load_custom_css.html %}
+</head>
+<body id="top-of-page" class="{{ layout.format }}">
+<div id="page">
+	{% include _navigation.html %}
+
+    <div id="main_content" class="grid-container fluid">
+      {{ content }}
+    </div>
+
+    <div id="footer_content" class="grid-container full">
+      {% include _footer.html %}
+    </div>
+
+    {% include load_custom_js.html %}
+</div>
+</body>
+</html>

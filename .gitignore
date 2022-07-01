@@ -1,0 +1,15 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.ruby-version
+*.swp
+.jekyll-metadata
+images/generative_logo
+sync_site.bash
+Gemfile.lock
+*~
+\#*\#
+.#*
+
+assets/vue
+assets/_includes/vue
