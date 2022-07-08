@@ -5,11 +5,13 @@ _site/
 *.swp
 .jekyll-metadata
 images/generative_logo
-sync_site.bash
 Gemfile.lock
+
+# Custom Bundle configuration
+.bundle/config
+
+# Emacs backup and temp files.
 *~
 \#*\#
 .#*
 
-assets/vue
-assets/_includes/vue
