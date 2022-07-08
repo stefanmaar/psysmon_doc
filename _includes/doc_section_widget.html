@@ -1,0 +1,18 @@
+{% assign doc_collection = include.collection %}
+<div class="grid-x grid-margin-x large-up-3 medium-up-2 small-up-2">
+    {% assign children = site.data["ml"][page.lang]["collections"][doc_collection] | where: "parent", page.namespace | sort: "nav_order" %}
+    {% for cur_child in children %}
+    <div class="cell">
+      <div class="card">
+	<div class="card-divider">
+          <b>{{ cur_child.title }} </b>
+	</div>
+	<a href="{{ cur_child.url | relative_url}}"><img src="{{ site.image_dir }}/{{ cur_child.image_dir }}/section_image.png" style="width: 100%;"></a>
+	<div class="card-section">
+	  {{ cur_child.teaser }}
+	</div>
+      </div>
+     </div>
+    {% endfor %}
+</div>
+

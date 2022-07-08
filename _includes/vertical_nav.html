@@ -1,0 +1,24 @@
+{% assign doc_collection = include.collection %}
+{% assign chapters = site.data["ml"][page.lang]["collections"][doc_collection] | where: "type", "chapter"  | sort: "nav_order" %}
+<ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+
+    {% for cur_chapter in chapters %}
+        {% assign children = site.data["ml"][page.lang]["collections"][doc_collection] | where: "parent", cur_chapter.namespace | sort: "nav_order" %}
+        <li>
+            <a href="{{cur_chapter.url }}">{{ cur_chapter.title }}</a>
+            {% assign submenu_class = "" %}
+            {% if cur_chapter.title == page.title or cur_chapter.lang-ref == page.parent %}
+                {% assign submenu_class = "is-active" %}
+            {% endif %}
+            {% if children.size > 0 %}
+                <ul class="menu vertical nested {{ submenu_class }}">
+                    {% for cur_child in children %}
+                        <li>
+                            <a href="{{ cur_child.url }}">{{ cur_child.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
