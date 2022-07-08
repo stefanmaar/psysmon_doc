@@ -4,6 +4,8 @@ languages:
 pages:   
     info: Info
     contact: Contact
+    userdoc: User-Doc
+    tutorials: Tutorials
 scholar:
     article: Journal Articles
     book: Books

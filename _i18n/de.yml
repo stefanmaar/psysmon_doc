@@ -6,6 +6,8 @@ site:
 pages:   
     info: Info
     contact: Kontakt
+    userdoc: Benutzerdoku
+    tutorials: Tutorials
 scholar:
     article: Journalartikel
     book: Bücher
