@@ -148,7 +148,7 @@ defaults:
 #                                            /____/            /____/     
 multilang:
     languages: ["de", "en"]
-    default_language: "de"
+    default_language: "en"
 
 
 #     _____      __          __          
