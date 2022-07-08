@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+            <div id="small_doc_nav_sticky_container" class="show-for-small-only">
+                <div style="width: 100%">
+                    <div id="small-doc-toc-nav" class="title-bar" style="background: gray;" data-responsive-toggle="small_doc_toc_menu" data-hide-for="medium">
+                        <div class="title-bar-left">
+                        </div>
+                        <div class="title-bar-right">
+                            <div class="title-bar-title">{{ site.data.language[page.lang].toc }}</div>
+                            <button class="menu-icon" type="button" data-toggle="small_doc_toc_menu"></button>
+                        </div>
+                    </div>        
+                    <div id="small_doc_toc_menu" class="show-for-small-only">
+                        {% include vertical_nav.html collection=page.ml_collection %}
+                    </div>
+                </div>
+            </div>
+<div class="grid-x align-center">
+    <div class="grid-container small-12 large-9">
+        <div class="grid-x">
+            <div id="doc_nav_sticky_container" class="cell medium-3 small-0 hide-for-small-only" data-sticky-container>
+                <div class="sticky is-at-top" data-sticky data-top-anchor="page" data-margin-top="6">
+                    <div id="docs_menu" style="overflow: auto; height: calc(100vh - 6em); padding-right: 15px;">
+                        {% include vertical_nav.html collection=page.ml_collection %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell medium-9 small-12">
+                    <header>
+                            {% if page.image.title %}
+                            <figure>
+                                    <img src="{{ site.urlimg }}{{ page.image.title }}" width="970" alt="{{ page.title | escape_once }}" itemprop="image">
+
+                                    {% if page.image.caption_url and page.image.caption %}
+                                    <figcaption class="text-right">
+                                            <a href="{{ page.image.caption_url }}">{{ page.image.caption }}</a>
+                                    </figcaption>
+                                    {% elsif page.image.caption %}
+                                    <figcaption class="text-right">
+                                            {{ page.image.caption }}
+                                    </figcaption>
+                                    {% endif %}
+                            </figure>
+                            {% endif %}
+
+                            <span itemprop="name">
+                                    {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
+                                    <h1>{{ page.title }}</h1>
+                            </span>
+                    </header>
+
+
+                    {% if page.teaser %}
+                    <p class="teaser" itemprop="description">
+                            {{ page.teaser }}
+                    </p>
+                    {% endif %}
+                    <hr>
+                    Page: {{ page }}
+
+		    {% include doc_chapter_widget.html collection=page.ml_collection %}
+		    
+            </div>
+        </div>
+    </div>
+</div>
