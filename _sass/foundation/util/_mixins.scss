@@ -6,6 +6,11 @@
 /// @group functions
 ////
 
+// Fix the !global deprecated warning
+// !global assignments won't be able to declare new variables in future versions.
+$-zf-size: 0;
+$-zf-bp-value: 0;
+
 /// Creates an inner box-shadow for only one side
 ///
 /// @param {Keyword} $side - Side the shadow is supposed to appear. Can be `top`, `left`, `right` or `bottom`.
