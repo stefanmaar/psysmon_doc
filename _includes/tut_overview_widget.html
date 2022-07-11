@@ -1,0 +1,19 @@
+<div class="grid-x grid-margin-x large-up-3 medium-up-2 small-up-2">    
+    {% for cur_tutorial_slug in site.data.tutorials %}
+      {% assign cur_tutorial = site.data.ml[page.lang].collections[cur_tutorial_slug] %}
+      {% assign overview_page = site.data.ml[page.lang].collections[cur_tutorial_slug] | where_exp: "item", "item.layout == 'doc_page_entry'" %}
+      {% assign overview_page = overview_page[0] %}
+      <div class="cell">
+        <div class="card">
+	      <div class="card-divider">
+            <b>{{ overview_page.title }} </b>
+	      </div>
+	      <a href="{{ overview_page.url | relative_url }}"><img src="{{ site.image_dir }}/{{ overview_page.image_dir }}/section_image.png" style="width: 100%;"></a>
+	      <div class="card-section">
+	        {{ overview_page.teaser }}
+	      </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
