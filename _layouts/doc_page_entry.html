@@ -59,9 +59,8 @@ layout: default
                     </p>
                     {% endif %}
                     <hr>
-                    Page: {{ page }}
-
-		    {% include doc_chapter_widget.html collection=page.ml_collection %}
+                    {% comment %}{{ page }}{% endcomment %}
+		            {% include doc_chapter_widget.html collection=page.ml_collection %}
 		    
             </div>
         </div>
