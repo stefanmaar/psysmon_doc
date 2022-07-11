@@ -13,4 +13,5 @@ ml_collection: tutorials
 
 permalink: tutorials
 ---
-ml data: {{ site.data['ml'] }}
+{% comment %}ml data: {{ site.data['ml'] }}{% endcomment %}
+{% include tut_overview_widget.html prefix="tutorial" %}
