@@ -1,13 +1,33 @@
 {% assign doc_collection = include.collection %}
-{% assign chapters = site.data["ml"][page.lang]["collections"][doc_collection] | where: "type", "chapter"  | sort: "nav_order" %}
+{% assign doc_entry_page = site.data["ml"][page.lang]["collections"][doc_collection] | where: "layout", "doc_page_entry" %}
+{% assign doc_entry_page = doc_entry_page[0] %}
+{% assign chapters = site.data["ml"][page.lang]["collections"][doc_collection] | where: "type", "chapter" %}
 <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
-
-    {% for cur_chapter in chapters %}
-        {% assign children = site.data["ml"][page.lang]["collections"][doc_collection] | where: "parent", cur_chapter.namespace | sort: "nav_order" %}
+  <li>
+    <a href="{{ doc_entry_page.url }}">{{ doc_entry_page.title }}</a>
+    {% assign submenu_class = "" %}
+    {% if doc_entry_page.title == page.title or doc_entry_page.namespace == page.parent %}
+      {% assign submenu_class = "is-active" %}
+    {% endif %}
+    {% if children.size > 0 %}
+    <ul class="menu vertical nested {{ submenu_class }}">
+      {% for cur_child in children %}
+      <li>
+        <a href="{{ cur_child.url }}">{{ cur_child.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}  
+  </li>
+  
+    {% for cur_chapter in doc_entry_page.chapters %}
+        {% assign chapter_page = chapters | where: "slug", cur_chapter %}
+        {% assign chapter_page = chapter_page[0] %}
+        {% assign children = site.data["ml"][page.lang]["collections"][doc_collection] | where: "parent", chapter_page.namespace | sort: "nav_order" %}
         <li>
-            <a href="{{cur_chapter.url }}">{{ cur_chapter.title }}</a>
+            <a href="{{chapter_page.url }}">{{ chapter_page.title }}</a>
             {% assign submenu_class = "" %}
-            {% if cur_chapter.title == page.title or cur_chapter.lang-ref == page.parent %}
+            {% if chapter_page.title == page.title or chapter_page.namespace == page.parent %}
                 {% assign submenu_class = "is-active" %}
             {% endif %}
             {% if children.size > 0 %}
@@ -18,7 +38,7 @@
                         </li>
                     {% endfor %}
                 </ul>
-            {% endif %}
+            {% endif %}  
         </li>
     {% endfor %}
 </ul>
