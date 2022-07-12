@@ -9,7 +9,7 @@ image_dir: tut_sbe/sta_lta_detection
 namespace: tut_sbe_sta_lta_detection
 
 type: chapter
-nav_order: 12
+
 
 permalink: sta_lta_detection
 ---

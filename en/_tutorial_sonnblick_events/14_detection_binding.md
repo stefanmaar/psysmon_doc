@@ -9,7 +9,7 @@ image_dir: tut_sbe/detection_binding
 namespace: tut_sbe_detection_binding
 
 type: chapter
-nav_order: 13
+
 
 permalink: detection_binding
 ---

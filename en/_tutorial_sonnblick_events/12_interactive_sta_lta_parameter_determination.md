@@ -9,7 +9,7 @@ image_dir: tut_sbe/sta_lta_parameters
 namespace: tut_sbe_sta_lta_parameters
 
 type: chapter
-nav_order: 11
+
 
 permalink: sta_lta_parameters
 ---

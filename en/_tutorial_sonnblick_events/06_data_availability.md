@@ -9,7 +9,7 @@ image_dir: tut_sbe/data_availability
 namespace: tut_sbe_data_availability
 
 type: chapter
-nav_order: 5
+
 
 permalink: data_availability
 ---

@@ -9,7 +9,6 @@ image_dir: tut_sbe/geometry_file
 namespace: tut_sbe_geometry_file
 
 type: chapter
-nav_order: 2
 
 permalink: geometry_file
 ---

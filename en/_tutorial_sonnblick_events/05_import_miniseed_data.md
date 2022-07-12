@@ -9,7 +9,7 @@ image_dir: tut_sbe/import_data
 namespace: tut_sbe_import_data
 
 type: chapter
-nav_order: 4
+
 
 permalink: import_data
 ---

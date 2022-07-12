@@ -9,7 +9,7 @@ image_dir: tut_sbe/import_geometry
 namespace: tut_sbe_import_geometry
 
 type: chapter
-nav_order: 3
+
 
 permalink: import_geometry
 ---

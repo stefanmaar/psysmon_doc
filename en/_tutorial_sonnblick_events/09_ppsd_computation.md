@@ -9,7 +9,7 @@ image_dir: tut_sbe/ppsd_computation
 namespace: tut_sbe_ppsd_computation
 
 type: chapter
-nav_order: 8
+
 
 permalink: ppsd_computation
 ---

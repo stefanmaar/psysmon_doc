@@ -9,7 +9,7 @@ image_dir: tut_sbe/characteristic_parameters
 namespace: tut_sbe_characteristic_parameters
 
 type: chapter
-nav_order: 14
+
 
 permalink: characteristic_parameters
 ---

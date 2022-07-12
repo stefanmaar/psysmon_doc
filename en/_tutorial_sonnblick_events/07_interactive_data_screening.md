@@ -9,7 +9,7 @@ image_dir: tut_sbe/data_screening
 namespace: tut_sbe_data_screening
 
 type: chapter
-nav_order: 6
+
 
 permalink: data_screening
 ---

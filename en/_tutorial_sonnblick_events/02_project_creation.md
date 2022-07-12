@@ -9,7 +9,6 @@ image_dir: tut_sbe/project_creation
 namespace: tut_sbe_project_creation
 
 type: chapter
-nav_order: 1
 
 permalink: project_creation
 ---

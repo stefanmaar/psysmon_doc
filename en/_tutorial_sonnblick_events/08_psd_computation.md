@@ -9,7 +9,7 @@ image_dir: tut_sbe/psd_computation
 namespace: tut_sbe_psd_computation
 
 type: chapter
-nav_order: 7
+
 
 permalink: psd_computation
 ---

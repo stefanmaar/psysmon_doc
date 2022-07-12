@@ -9,7 +9,7 @@ image_dir: tut_sbe/ppsd_visualization
 namespace: tut_sbe_ppsd_visualization
 
 type: chapter
-nav_order: 10
+
 
 permalink: ppsd_visualization
 ---

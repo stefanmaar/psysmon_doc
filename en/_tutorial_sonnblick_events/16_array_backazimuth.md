@@ -9,7 +9,7 @@ image_dir: tut_sbe/array_backazimuth
 namespace: tut_sbe_array_backazimuth
 
 type: chapter
-nav_order: 15
+
 
 permalink: array_backazimuth
 ---

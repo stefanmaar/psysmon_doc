@@ -9,7 +9,7 @@ image_dir: tut_sbe/psd_visualization
 namespace: tut_sbe_psd_visualization
 
 type: chapter
-nav_order: 9
+
 
 permalink: psd_visualization
 ---
