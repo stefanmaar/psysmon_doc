@@ -9,7 +9,24 @@ image_dir: tut_sbe/overview
 namespace: tut_sbe_overview
 
 type: chapter
-nav_order: 0
+
+chapters:
+  - getting-started
+  - project-creation
+  - geometry-file
+  - import-geometry-file
+  - import-data-files
+  - data-availability
+  - data-screening
+  - power-spectral-density
+  - probability-power-spectral-density
+  - psd-visualization
+  - ppsd-visualization
+  - sta-lta-parameters
+  - sta-lta-detection
+  - detection-binding
+  - characteristic-parameters
+  - array-backazimuth
 
 permalink: overview
 ---
