@@ -45,6 +45,7 @@ sitemap:
 @import "foundation/xy-grid/xy-grid";
 
 // Navigation
+@import "foundation/components/accordion-menu";
 @import "foundation/components/menu";
 @import "foundation/components/title-bar";
 @import "foundation/components/top-bar";
@@ -53,6 +54,8 @@ sitemap:
 
 // Containers
 @import "foundation/components/accordion";
+@import "foundation/components/callout";
+@import "foundation/components/card";
 @import "foundation/components/off-canvas";
 
 // Orbit slider
@@ -71,6 +74,9 @@ sitemap:
 
 // Activate the components
 @include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-callout;
+@include foundation-card;
 @include foundation-global-styles;
 @include foundation-menu;
 @include foundation-menu-icon;
