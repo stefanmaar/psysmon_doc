@@ -1,0 +1,40 @@
+{% if page.license and page.license != "None" %}
+{% assign license = site.data.license[page.license] %}
+<hr>
+<div class="licence-note grid-x grid-padding-x">
+  <div class="cell shrink">
+    <div class="icon" style="margin-top: 7px;"><i class="{{license.icon_class}} cc-lg"></i></div>
+  </div>
+  <div class="cell auto">
+    {% if page.copyright %}
+      {% if page.copyright.data %}
+        {% assign cp_date=copyright.data %}
+      {% else %}
+        {% assign cp_date=site.time | date: '%Y' %}
+      {% endif %}
+      <p class="copyright">Copyright &#169; <i>{{cp_date}} {{page.copyright.author}}</i>.</p>
+    {% endif %}
+    <p class="title">Dieser Artikel ist unter einer <a href="{{license.url}}" target="blank">{{license.name_long[page.lang]}} Lizenz</a> lizensiert.</p>
+    <p class="description">{{license.description[page.lang]}}</p>
+    <p class="attribution">Wenn möglich, verwenden Sie die folgende Form um diesen Artikel zu zitieren:<br><a href="{{page.url}}">"{{page.title}}"</a>, <a href="/info" target="blank">{{page.copyright.author}}</a>, {{page.date | date: '%Y-%m-%d'}}, <a href="https://www.macroseismicsensor.at">www.macroseismicsensor.at</a>, lizensiert unter <a href="{{license.url}}" target="_blank">{{license.name[page.lang]}}</a></p>
+    {% if page.basedon %}
+      basierend auf:<br>
+      {% for cur_basedon in page.basedon %}
+        <p class="basedon">{{cur_basedon}}</p>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% elsif page.copyright %}
+{% if page.copyright.data %}
+  {% assign cp_date=copyright.data %}
+{% else %}
+  {% assign cp_date=site.time | date: '%Y' %}
+{% endif %}
+<hr>
+<div class="licence-note grid-x grid-padding-x">
+  <div class="cell auto">
+    <p class="copyright">Copyright &#169; <i>{{cp_date}} {{page.copyright.author}}</i>.</p>
+  </div>                                                                                           
+</div>
+{% endif %}
