@@ -9,7 +9,10 @@ image_dir: tut_ex/overview
 namespace: tut_ex_overview
 
 type: chapter
-nav_order: 0
+chapters:
+  - example-chapter-1
+  - example-chapter-2
+ 
 
 permalink: overview
 ---

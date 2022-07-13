@@ -9,7 +9,6 @@ image_dir: tut_ex/chapter_01
 namespace: tut_ex_chapter_01
 
 type: chapter
-nav_order: 1
 
 permalink: chapter_01
 ---
