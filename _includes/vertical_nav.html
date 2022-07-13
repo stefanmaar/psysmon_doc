@@ -9,34 +9,27 @@
     {% if doc_entry_page.title == page.title or doc_entry_page.namespace == page.parent %}
       {% assign submenu_class = "is-active" %}
     {% endif %}
-    {% if children.size > 0 %}
-    <ul class="menu vertical nested {{ submenu_class }}">
-      {% for cur_child in children %}
-      <li>
-        <a href="{{ cur_child.url }}">{{ cur_child.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}  
   </li>
   
     {% for cur_chapter in doc_entry_page.chapters %}
         {% assign chapter_page = chapters | where: "slug", cur_chapter %}
         {% assign chapter_page = chapter_page[0] %}
-        {% assign children = site.data["ml"][page.lang]["collections"][doc_collection] | where: "parent", chapter_page.namespace | sort: "nav_order" %}
+        {% assign children = site.data.ml[page.lang].collections[doc_collection] | where: "parent", chapter_page.namespace %}
         <li>
             <a href="{{chapter_page.url }}">{{ chapter_page.title }}</a>
             {% assign submenu_class = "" %}
             {% if chapter_page.title == page.title or chapter_page.namespace == page.parent %}
                 {% assign submenu_class = "is-active" %}
             {% endif %}
-            {% if children.size > 0 %}
+            {% if chapter_page.sections.size > 0 %}
                 <ul class="menu vertical nested {{ submenu_class }}">
-                    {% for cur_child in children %}
-                        <li>
-                            <a href="{{ cur_child.url }}">{{ cur_child.title }}</a>
-                        </li>
-                    {% endfor %}
+                  {% for cur_section in chapter_page.sections %}
+                    {% assign section_page = children | where: "slug", cur_section %}
+                    {% assign section_page = section_page[0] %}
+                    <li>
+                      <a href="{{ section_page.url }}">{{ section_page.title }}</a>
+                    </li>
+                  {% endfor %}
                 </ul>
             {% endif %}  
         </li>
