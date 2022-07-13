@@ -1,6 +1,8 @@
 languages:
     german: Deutsch
     english: English
+site:
+    title: psysmon documentation
 pages:   
     info: Info
     contact: Contact
@@ -25,4 +27,6 @@ global:
     next_page: nächste Seite
     previous_page: vorherige Seite
     read_more: read more
-    
+    toc: toc
+doc:
+    on_this_site: On this page 

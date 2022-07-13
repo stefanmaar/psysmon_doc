@@ -27,3 +27,6 @@ global:
     next_page: nächste Seite
     previous_page: vorherige Seite
     read_more: mehr lesen
+    toc: Inhalt
+doc:
+    on_this_site: Auf dieser Seite
