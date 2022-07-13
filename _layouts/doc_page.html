@@ -8,7 +8,7 @@ layout: default
                         <div class="title-bar-left">
                         </div>
                         <div class="title-bar-right">
-                            <div class="title-bar-title">{{ site.data.language[page.lang].toc }}</div>
+                            <div class="title-bar-title">{% translate global.toc  %}</div>
                             <button class="menu-icon" type="button" data-toggle="small_doc_toc_menu"></button>
                         </div>
                     </div>        
@@ -61,7 +61,7 @@ layout: default
                     {% endif %}
 
                     <details open>
-                        <summary>{{ site.data.language[page.lang].on_this_page }}</summary>
+                        <summary>{% translate doc.on_this_site %}</summary>
                         {% include toc.html html=content h_max=2 sanitize=true id="article_toc_menu" class="menu vertical"%}
                     </details>
                     <hr>
