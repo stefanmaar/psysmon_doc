@@ -59,6 +59,10 @@ layout: default
                             {{ page.teaser }}
                     </p>
                     {% endif %}
+                    <details open>
+                        <summary>{% translate doc.on_this_site %}</summary>
+                        {% include toc.html html=content h_max=2 sanitize=true id="article_toc_menu" class="menu vertical"%}
+                    </details>
                     <hr>
                     {{ content }}
 
