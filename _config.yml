@@ -40,9 +40,11 @@ image_dir: '/images/'
 # Logo size is 600x80 pixels
 logo: "logo.png"
 
-
-# Theme works best with Kramdown (using the table of contents function)
 markdown: kramdown
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+    
 permalink: /:categories/:title/
 highlight: rouge
 plugins: [jekyll-paginate-v2,
