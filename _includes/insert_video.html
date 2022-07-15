@@ -1,0 +1,33 @@
+{% comment %}
+*
+*   {% include insert_video.html key="data_key" %}
+*
+{% endcomment %}
+
+{% assign slug = page.title | slugify %}
+{% assign data = page.videos[include.key] %}
+
+
+<div class="video-container">
+  <div style="width: 100%">
+  <video controls {% if data.label %}id="{{ data.label }}"{% endif %}>
+	<source src="{{ site.image_dir | append: page.image_dir | append: "/" | append: data.filename | relative_url }}" type="video/mp4">
+  </video>
+  </div>
+
+  {% if data.caption %}
+    {% assign caption = data.caption %}
+  {% endif %}
+  
+  {% if data.credit %}
+    {% assign credit = '(photo: ' | append: data.credit | append: ')' %}\
+  {% endif %}
+
+
+  {% if caption or credit %}
+  <videocaption>
+    {% if caption %}{{ caption | flatify | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} {%if credit %}<i>{{ credit }}</i>{% endif %}
+  </videocaption>
+  {% endif %}
+    
+</div>

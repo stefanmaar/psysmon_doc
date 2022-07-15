@@ -1,0 +1,64 @@
+{% comment %}
+*
+*   This include lets you easily embed a gallery into your post.
+*   To use the gallery include you...
+*
+*   1. ...need two images: a thumbnail and a big image.
+*   2. Name the thumbnail gallery-image-thumb.jpg and...
+*   3. ...name the big gallery-image.jpg
+*   4. Define the big version in frontmatter,
+*
+*   gallery:
+*       - image_url: gallery-image.jpg
+*
+*   5. Give your image a caption – works without captions, too.
+*
+*   gallery:
+*       - image_url: gallery-image.jpg
+*          caption: Starting Page with huge One Logo
+*
+*   6. Add the include whereever you want in your content like this:
+*
+*   {% include gallery %}
+*
+*   Check out the example page › http://phlow.github.io/feeling-responsive/design/gallery/
+*
+{% endcomment %}
+
+{% if include.columns == nil %}
+    {% assign n_columns = 3 %}
+{% else %}
+    {% assign n_columns = include.columns %}
+{% endif %}
+
+{% assign data = page.galleries[include.key] %}
+
+<div class="gallery" data-featherlight-gallery data-featherlight-filter="a" {% if data.label %}id="{{ data.label }}"{% endif %}>
+  {% comment %}
+    <ul class="clearing-thumbs small-block-grid-{{n_columns | minus: 2 }} medium-block-grid-{{ n_columns | minus: 1 }} large-block-grid-{{ n_columns }}">
+  {% endcomment %}
+  <div class="grid-x grid-margin-x grid-margin-y small-up-1 medium-up-2 large-up-3">
+	{% for item in data.images %}
+      {% if item.caption %}
+        {% assign caption = item.caption %}
+      {% else %}
+        {% assign caption = '' %}
+      {% endif %}
+      {% if item.credit %}
+        {% assign caption = caption | append: '  (photo: ' | append: item.credit | append: ')' %}
+      {% endif %}
+      <div class="cell"><a href="{{ site.image_dir | append: page..image_dir | append: "/" | append: item.filename | relative_url}}" {% if caption %}caption="{{ caption }}"{% endif %} alt="Titel"><img src="{{ site.image_dir | append: page.image_dir | append: "/" | append: item.filename | relative_url}}" width="100%"></a></div>
+	{% endfor %}
+  </div>
+  {% if data.caption %}
+    {% assign caption = data.caption %}
+  {% else %}
+    {% assign caption = '' %}
+  {% endif %}
+  {% if caption  %}
+    <gallerycaption>
+      {{ caption | markdownify | remove: "<p>" | remove: "</p>" }}
+    </gallerycaption>
+  {% endif %}
+</div>
+

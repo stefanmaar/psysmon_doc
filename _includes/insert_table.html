@@ -1,0 +1,27 @@
+{% comment %}
+*
+*   {% include insert_table key="tab:my_table" %}
+*
+{% endcomment %}
+
+{% assign slug = page.title | slugify %}
+{% assign data = page.tables[include.key] %}
+
+<table {% if data.label %}id="{{ data.label }}"{% endif %}>
+  {% if data.caption %}
+  <caption>{{ data.caption | markdownify | remove: "<p>" | remove: "</p>" }}</caption>
+  {% endif %}
+  {% for row in site.data.tables[data.data] %}
+  {% if forloop.first %}
+  <tr>
+    {% for pair in row %}
+    <th>{{ pair[0] }}</th>
+    {% endfor %}
+  </tr>
+  {% endif %}
+  
+  {% tablerow pair in row %}
+  {{ pair[1] }}
+  {% endtablerow %}
+  {% endfor %}
+</table>
