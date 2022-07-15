@@ -12,6 +12,13 @@ namespace: tut_sbe_getting_started
 type: chapter
 
 permalink: project_getting_started
+
+figures:
+    main-window:
+        label: "fig:main_window"
+        number: 1
+        filename: "screenshot_psysmon_main_window.png"
+        caption: "The psysmon main window after startup."
 ---
 
 The getting started guide covers the installation of psysmon using a **Linux** operation system. psysmon is written in [Python3][python]{:target="blank"}, therefore running the program on Windows is possible. For Windows systems, no detailed installation instructions are given, but whenever possible hints and external links are provided to facilitate window related installations steps.
@@ -115,21 +122,24 @@ stefan@hausmeister:~/tutorial/psysmon$
 ~~~
 
 #### Installing psysmon in development mode
-To install psysmon in development mode the `pip` flag `-e` has to be used. Installing psysmon using `pip` will install all remaining package requirements. Change into the `tutorial` directory and install psysmon using the command `pip install -e psysmon`. 
+To install psysmon in development mode the `pip` flag `-e` has to be used. Installing psysmon using `pip` will install all remaining package requirements. Change into the `tutorial` directory and install psysmon using the command `pip install -e ./psysmon`. 
 
 ~~~console
-(psysmon) stefan@hausmeister:~/tutorial$ pip install -e psysmon
+(psysmon) stefan@hausmeister:~/tutorial$ pip install -e ./psysmon
 Obtaining file:///home/stefan/tutorial/psysmon
+Collecting PyPubSub>=4.0.3
+  Using cached Pypubsub-4.0.3-py3-none-any.whl (61 kB)
 Collecting Pyro4>=4.32
   Using cached Pyro4-4.82-py2.py3-none-any.whl (89 kB)
+Collecting click>=8.1.3
+  Using cached click-8.1.3-py3-none-any.whl (96 kB)
 Collecting construct>=2.9.45
   Using cached construct-2.10.68.tar.gz (57 kB)
 Processing /home/stefan/.cache/pip/wheels/8e/70/28/3d6ccd6e315f65f245da085482a2e1c7d14b90b30f239e2cf4/future-0.18.2-py3-none-any.whl
 Collecting geojson>=2.5.0
   Using cached geojson-2.5.0-py2.py3-none-any.whl (14 kB)
 Collecting lxml>=2.3.2
-  Downloading lxml-4.9.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (6.9 MB)
-     |████████████████████████████████| 6.9 MB 2.9 MB/s 
+  Using cached lxml-4.9.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (6.9 MB)
 Collecting matplotlib>=3.2.0
   Using cached matplotlib-3.5.2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (11.3 MB)
 Collecting obspy>=1.1.1
@@ -149,27 +159,25 @@ Collecting seaborn>=0.9.0
 Collecting sqlalchemy>=0.9.8
   Using cached SQLAlchemy-1.4.39-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
 Collecting serpent>=1.27; python_version >= "3.2"
-  Downloading serpent-1.41-py3-none-any.whl (9.6 kB)
-Collecting fonttools>=4.22.0
-  Downloading fonttools-4.34.4-py3-none-any.whl (944 kB)
-     |████████████████████████████████| 944 kB 43.2 MB/s 
-Collecting python-dateutil>=2.7
-  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+  Using cached serpent-1.41-py3-none-any.whl (9.6 kB)
 Collecting packaging>=20.0
   Using cached packaging-21.3-py3-none-any.whl (40 kB)
 Collecting kiwisolver>=1.0.1
   Using cached kiwisolver-1.4.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.2 MB)
+Collecting fonttools>=4.22.0
+  Using cached fonttools-4.34.4-py3-none-any.whl (944 kB)
+Collecting python-dateutil>=2.7
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
 Requirement already satisfied: numpy>=1.17 in ./venv/psysmon/lib/python3.8/site-packages (from matplotlib>=3.2.0->psysmon==0.0.2) (1.23.1)
-Collecting pyparsing>=2.2.1
-  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
 Collecting cycler>=0.10
   Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting pyparsing>=2.2.1
+  Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
 Collecting decorator
   Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
-Collecting requests
-  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-     |████████████████████████████████| 62 kB 210 kB/s 
 Requirement already satisfied: setuptools in ./venv/psysmon/lib/python3.8/site-packages (from obspy>=1.1.1->psysmon==0.0.2) (44.0.0)
+Collecting requests
+  Using cached requests-2.28.1-py3-none-any.whl (62 kB)
 Collecting certifi
   Using cached certifi-2022.6.15-py3-none-any.whl (160 kB)
 Collecting pandas>=0.23
@@ -177,18 +185,17 @@ Collecting pandas>=0.23
 Collecting greenlet!=0.4.17; python_version >= "3" and (platform_machine == "aarch64" or (platform_machine == "ppc64le" or (platform_machine == "x86_64" or (platform_machine == "amd64" or (platform_machine == "AMD64" or (platform_machine == "win32" or platform_machine == "WIN32"))))))
   Using cached greenlet-1.1.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (156 kB)
 Requirement already satisfied: six>=1.5 in ./venv/psysmon/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib>=3.2.0->psysmon==0.0.2) (1.16.0)
-Collecting urllib3<1.27,>=1.21.1
-  Downloading urllib3-1.26.10-py2.py3-none-any.whl (139 kB)
-     |████████████████████████████████| 139 kB 46.4 MB/s 
 Collecting idna<4,>=2.5
   Using cached idna-3.3-py3-none-any.whl (61 kB)
+Collecting urllib3<1.27,>=1.21.1
+  Using cached urllib3-1.26.10-py2.py3-none-any.whl (139 kB)
 Collecting charset-normalizer<3,>=2
-  Downloading charset_normalizer-2.1.0-py3-none-any.whl (39 kB)
+  Using cached charset_normalizer-2.1.0-py3-none-any.whl (39 kB)
 Building wheels for collected packages: construct
   Building wheel for construct (setup.py) ... error
   ERROR: Command errored out with exit status 1:
-   command: /home/stefan/tutorial/venv/psysmon/bin/python3 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-ekh_m7_9/construct/setup.py'"'"'; __file__='"'"'/tmp/pip-install-ekh_m7_9/construct/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-7d4kgvbs
-       cwd: /tmp/pip-install-ekh_m7_9/construct/
+   command: /home/stefan/tutorial/venv/psysmon/bin/python -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-xdouf2mr/construct/setup.py'"'"'; __file__='"'"'/tmp/pip-install-xdouf2mr/construct/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-9cvnprvd
+       cwd: /tmp/pip-install-xdouf2mr/construct/
   Complete output (6 lines):
   usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
      or: setup.py --help [cmd1 cmd2 ...]
@@ -200,10 +207,10 @@ Building wheels for collected packages: construct
   ERROR: Failed building wheel for construct
   Running setup.py clean for construct
 Failed to build construct
-Installing collected packages: serpent, Pyro4, construct, future, geojson, lxml, fonttools, python-dateutil, pyparsing, packaging, kiwisolver, cycler, matplotlib, greenlet, sqlalchemy, decorator, scipy, certifi, urllib3, idna, charset-normalizer, requests, obspy, pycairo, pymysql, pyproj, pytz, pandas, seaborn, psysmon
+Installing collected packages: PyPubSub, serpent, Pyro4, click, construct, future, geojson, lxml, pyparsing, packaging, kiwisolver, fonttools, python-dateutil, cycler, matplotlib, decorator, idna, certifi, urllib3, charset-normalizer, requests, scipy, greenlet, sqlalchemy, obspy, pycairo, pymysql, pyproj, pytz, pandas, seaborn, psysmon
     Running setup.py install for construct ... done
   Running setup.py develop for psysmon
-Successfully installed Pyro4-4.82 certifi-2022.6.15 charset-normalizer-2.1.0 construct-2.10.68 cycler-0.11.0 decorator-5.1.1 fonttools-4.34.4 future-0.18.2 geojson-2.5.0 greenlet-1.1.2 idna-3.3 kiwisolver-1.4.3 lxml-4.9.1 matplotlib-3.5.2 obspy-1.3.0 packaging-21.3 pandas-1.4.3 psysmon pycairo-1.21.0 pymysql-1.0.2 pyparsing-3.0.9 pyproj-3.3.1 python-dateutil-2.8.2 pytz-2022.1 requests-2.28.1 scipy-1.8.1 seaborn-0.11.2 serpent-1.41 sqlalchemy-1.4.39 urllib3-1.26.10
+Successfully installed PyPubSub-4.0.3 Pyro4-4.82 certifi-2022.6.15 charset-normalizer-2.1.0 click-8.1.3 construct-2.10.68 cycler-0.11.0 decorator-5.1.1 fonttools-4.34.4 future-0.18.2 geojson-2.5.0 greenlet-1.1.2 idna-3.3 kiwisolver-1.4.3 lxml-4.9.1 matplotlib-3.5.2 obspy-1.3.0 packaging-21.3 pandas-1.4.3 psysmon pycairo-1.21.0 pymysql-1.0.2 pyparsing-3.0.9 pyproj-3.3.1 python-dateutil-2.8.2 pytz-2022.1 requests-2.28.1 scipy-1.8.1 seaborn-0.11.2 serpent-1.41 sqlalchemy-1.4.39 urllib3-1.26.10
 (psysmon) stefan@hausmeister:~/tutorial$ 
 ~~~
 
@@ -270,6 +277,19 @@ Bye
 ~~~
 
 ## Starting psysmon 
+To start *psysmon* run the command `psysmon` in your console. After executing the command, the psysmon main window should appear. The warning about not being able to load the configuration file is ok when starting psysmon for the first time. After closing psysmon, the configuration file will be created.
+
+~~~console
+(psysmon) stefan@hausmeister:~/tutorial$ psysmon
+#LOG# - 2022-07-15 12:00:45,360 - 13590 - WARNING - psysmon: Couldn't load the configuration from file /home/stefan/.config/psysmon/psysmon.cfg. Using the default configuration.
+#LOG# - 2022-07-15 12:00:45,361 - 13590 - INFO - psysmon: If this is the first time starting psysmon, the configuration file will be created and the warning should not appear again.
+(psysmon) stefan@hausmeister:~/tutorial$ 
+~~~
+
+{% include insert_image.html key="main-window" %}
+
+
+
 
 
 
