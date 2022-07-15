@@ -32,7 +32,7 @@ sitemap:
 @import 'foundation/settings';
 
 // Import custom settings
-@import 'theme/01_custom_foundation_settings';
+@import 'theme/custom_foundation_settings';
 
 // Utilities
 @import 'foundation/util/util';
@@ -103,7 +103,10 @@ sitemap:
 
 // --- Custom Theme Styles ---
 //@import "frontpage_layout";
-@import "theme/02_colors";
-@import "theme/03_navigation";
-@import "theme/04_main_layout";
-@import "theme/05_code";
+@import "theme/colors";
+@import "theme/navigation";
+@import "theme/article_layout";
+@import "theme/list_customization";
+@import "theme/code";
+@import "theme/footer";
+//@import "theme/04_main_layout";

@@ -1,0 +1,25 @@
+/* Footer
+------------------------------------------------------------------- */
+#footer-content p,
+#footer-content li {
+    font-size: rem-calc(13);
+    font-weight: 300;
+}
+
+#footer {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background: $footer-bg;
+    color: $footer-color;
+
+    a {
+        color: $footer-link-color;
+    }
+
+    h4, h5 {
+        letter-spacing: 1px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+}
+
