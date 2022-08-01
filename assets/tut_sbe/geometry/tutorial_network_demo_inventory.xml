@@ -1,38 +1,3 @@
----
-title: "Geometry file"
-layout: doc_chapter
-subheadline: "Creating the XML file containing the station layout."
-description: "Creating the XML file containing the station layout."
-teaser: "The geometry XML file contains the inventory and layout of the seismic network. It contains sensors, recorders and stations and the assignment of sensors to recorders and recorders to stations."
-image_dir: tut_sbe/geometry_file
-assets_dir: /assets/tut_sbe/geometry
-
-namespace: tut_sbe_geometry_file
-
-type: chapter
-
-permalink: geometry_file
-
-figures: 
-    example-network-inventory:
-        label: "fig:example-network-inventory"
-        number: 1
-        filename: example_network_inventory.png
-        caption: Relationship of the inventory elements of the example network inventory.
----
-To work with timeseries data in psysmon, the positions and assignments of the stations, data recorders and sensors have to be known. The instrument and station inventory is stored in the psysmon database. The layout of the station inventory can be created in psysmon using a graphical user interface, alltough a more convenient and manageable way is to create a XML geometry file defining the station geometry. This geometry file can be imported into the psysmon database.
-
-The geometry file holds an inventory of main elements like sensors, recorders, stations, networks and arrays. Each of the main elements may contain other sub-elements like components of a sensor (e.g. vertical, east, north) or data streams of a recorder. The elements of the inventory can be assigned to others to create a representation of the physical station layout. The assignment of one element to another is usually limited by a time period. Using this time period it is easy to keep track of changes in the station layout (e.g. swapping of senors or recorders, changes in the sampling rate of a recorder, ...).
-
-Download the [commented geometry file][file:commented-geometry-file]{:target="blank"} used for this tutorial to inspect the various elements in the geometry file.
-
-
-## Example network inventory 
-The following listing gives a commented example of a simple inventory with one 3-component sensor, one recorder and one station in a network. Repeating elements have not been commented. [Figure {{ page.figures.example-network-inventory.number }}][fig:example-network-inventory] outlines the relationship of the elements in the inventory example.
-
-{% include insert_image.html key="example-network-inventory" %}
-
-~~~xml
 <?xml version='1.0' encoding='UTF-8'?>
 <inventory name="tutorial_network_demo">
 
@@ -368,8 +333,3 @@ The following listing gives a commented example of a simple inventory with one 3
         </station>
     </network>
 </inventory>
-~~~
-
-
-[file:commented-geometry-file]: {{ page.assets_dir }}/seisrock_sbk_inventory.xml
-[fig:example-network-inventory]: #{{ page.figures.example-network-inventory.label }}
