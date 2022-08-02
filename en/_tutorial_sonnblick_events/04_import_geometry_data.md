@@ -91,6 +91,8 @@ figures:
         filename: screenshot_inventory_map_view.png
         caption: "The map view of an inventory can be opened by selecting the map view tap in the panel view."
 ---
+To import the station layout of the seismic network installed at *Hoher Sonnblick* the file `seisrock_sbk_inventory.xml` of the tutorial data set is needed. Make shure, that you have this file available at your filesystem.
+
 ## Opening the geometry editor
 To import the geometry file, the collection node `edit geometry` has to be executed. The access the geometry editor using the `edit geometry` collection node involves the follwing steps.
 
@@ -161,4 +163,8 @@ The map view of the inventory selected in the inventory tree can be opened by se
 
 {% include insert_image.html key="inventory-map-view" %}
 
+## Close the editor
+The geometry has now been imported into the psysmon database. The geometry editor can now be closed, either by clicking the window close icon (usually a cross) on the top right of the window frame or by clicking the menu entry `File->Exit`.
 
+## Save the project
+Return to the psysmon main window and select the menu entry `File->Save project`. This will save the newly created collection `geometry` for later use.
