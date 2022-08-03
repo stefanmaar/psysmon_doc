@@ -13,69 +13,75 @@ type: chapter
 permalink: import_data
 
 figures:
+    open-recent-project:
+        label: fig:open-recent-project
+        number: 1
+        filename: screenshot_open_recent_project.png
+        caption: Open a recent project using the File menu.
+        
     waveclient-editor:
         label: "fig:waveclient-editor"
-        number: 1
+        number: 2
         filename: screenshot_waveclient_editor.png
         caption: "The waveclient editor showing the default database client."
         
     waveclient-options:
         label: "fig:waveclient-options"
-        number: 2
+        number: 3
         filename: screenshot_waveclient_options.png
         caption: The options of the db client waveclient.
         
     add-waveform-directory:
         label: "fig:add-waveform-directory"
-        number: 3
+        number: 4
         filename: screenshot_add_waveform_directory.png
         caption: Enter the properties of the waveform directory. The waveform directory points to the base path holding the data files. The file extension sets the search wildcards when scanning the waveform directory for data files.
         
     waveclient-options-with-waveform-directory:
         label: fig:waveclient-options-with-waveform-directory
-        number: 4
+        number: 5
         filename: screenshot_waveclient_options_with_waveform_directory.png
         caption: The waveclient options with the added waveform directory.
         
     waveclient-options-with-description:
         label: fig:waveclient-options-with-description
-        number: 5
+        number: 6
         filename: screenshot_waveclient_options_with_description.png
         caption: The waveclient options with the description.
         
     waveclient-editor-with-description:
         label: fig:waveclient-editor-with-description
-        number: 6
+        number: 7
         filename: screenshot_waveclient_editor_with_description.png
         caption: The waveclient editor with the changed custom description.
         
     data-import-collection:
         label: fig:data-import-collection
-        number: 7
+        number: 8
         filename: screenshot_data_import_collection.png
         caption: The data import collection with the import filesystem data collection node.
         
     open-import-data-preferences:
         label: fig:open-import-data-preferences
-        number: 8
+        number: 9
         filename: screenshot_open_import_data_preferences.png
         caption: Open the preferences dialog of the import filesystem data using the context menu in the collection listbox.
         
     set-import-data-preferences:
         label: fig:set-import-data-preferences
-        number: 9
+        number: 10
         filename: screenshot_set_import_data_preferences.png
         caption: Select the available waveform directory and close the preferences dialog by clicking the OK button.
         
     check-collection-process:
         label: fig:check-collection-process
-        number: 10
+        number: 11
         filename: screenshot_check_collection_process.png
         caption: The status of the collection execution processes is shown in the processes tab in the log area at the bottom of the psysmon main window.
         
     view-log-file:
         label: fig:view-log-file
-        number: 11
+        number: 12
         filename: screenshot_view_log_file.png
         caption: To view the collection execution process log file, select the process in the processes tab in the log area and select the view log file menu entry of the context menu.
 ---
@@ -84,6 +90,13 @@ psysmon supports various data sources named waveclients (e.g. local file storage
 To work with timeseris data file, the root directories containing the data files need to be configured. These root directories are named waveform directories. This has to be done to cope with eventual changes of the root directory names (e.g. when moving the data files to another filesystem or when working with remote data directories, where the name of the mount points might change).
 
 The default waveclient is a database client which works with data files available on the local filesystem. The database client indexes the data files by importing the header data into the psysmon database. The filepaths are stored as paths relative to the waveform directory from which the data was imported.
+
+## Reopen a project
+At this point I introduce the opening of an existing psysmon project. If open, close the psysmon main window by clicking the menu entry `File->Exit`. Restart psysmon to reopen the psysmon main window. To open an existing psysmon project one can click the menu entry `File->Open project` and navigate to the desired psysmon project file (file ending ppr), or one can select a recently opened project file in the submenu `File->Open recent`. The psysmon project file is located in the project directory created during project creation (see section [Project creation][chap-project-directory]).
+
+{% include insert_image.html key="open-recent-project" %}
+
+A dialog asking for the user and password will open. Enter the database user name and the related password that was used when [setting up the database][chap-setting-up-the-database]. Click the `OK` button. The psysmon project will be loaded in the psysmon main window.
 
 ## Configure the data source
 
@@ -378,5 +391,7 @@ If not done yet, save the project by selecting the menu entry `File->Save projec
 
 
 [chap-import-geometry-file]: {% link en/_tutorial_sonnblick_events/04_import_geometry_data.md %}#opening-the-geometry-editor
+[chap-project-directory]: {% link en/_tutorial_sonnblick_events/02_project_creation.md %}#project-directory
+[chap-setting-up-the-database]: {% link en/_tutorial_sonnblick_events/01_getting_started.md %}#setting-up-the-database
 
 
