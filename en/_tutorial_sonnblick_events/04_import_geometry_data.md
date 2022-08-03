@@ -159,7 +159,7 @@ Use the context menu and the expand/collapse triangles of the inventory tree as 
 {% include insert_image.html key="db-inventory-overview" %}
 
 ## Map view of the inventory
-The map view of the inventory selected in the inventory tree can be opened by selecting the `map view` tab in the panel view of the geometry editor. This will swap from the list view to the map view showing the positions of the station locations. The 5 stations of the Sonnblick network should be shown. Stations MOR, PIL and MIT are arrays with three locations A, B and C. You will notice, that the locations of the array MIT are co-located. This is ok, because at that time, these stations have not yet been installed at their correct array locations.
+The map view of the inventory selected in the inventory tree can be opened by selecting the `map view` tab in the panel view of the geometry editor. This will swap from the list view to the map view showing the positions of the station locations. The 5 stations of the Sonnblick network should be shown. Stations MOR, PIL and MIT are arrays with three locations A, B and C.
 
 {% include insert_image.html key="inventory-map-view" %}
 
