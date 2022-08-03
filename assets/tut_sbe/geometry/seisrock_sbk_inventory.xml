@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <inventory name="seisrock_sbk">
-
     <!-- The sensor_list holds a collection of sensors. -->
     <sensor_list>
         <!-- A sensor has the serial number as its attribute. -->
@@ -476,7 +475,7 @@
                  recorder serial, model, producer and the stream name. -->
             <stream name="00:001">
                 <!-- The label of the stream. Gives the stream a readable name. -->
-                <label>HHZ</label>
+                <label>DPZ</label>
 
                 <!-- A stream parameter. -->
                 <!-- Multiple stream_parameter elements can be used. -->
@@ -523,7 +522,7 @@
             </stream>
 
             <stream name="00:002">
-                <label>HHN</label>
+                <label>DPN</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -541,7 +540,7 @@
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -565,7 +564,7 @@
             <description>Recorder description.</description>
 
             <stream name="00:001">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -583,7 +582,7 @@
             </stream>
 
             <stream name="00:002">
-                <label>HHN</label>
+                <label>DPN</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -601,7 +600,7 @@
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -625,7 +624,7 @@
             <description>Recorder description.</description>
 
             <stream name="00:001">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -643,7 +642,7 @@
             </stream>
 
             <stream name="00:002">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -661,7 +660,7 @@
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -685,7 +684,7 @@
             <description>Recorder description.</description>
 
             <stream name="00:001">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -703,7 +702,7 @@
             </stream>
 
             <stream name="00:002">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -721,7 +720,7 @@
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -745,7 +744,7 @@
             <description>Recorder description.</description>
 
             <stream name="00:001">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -763,7 +762,7 @@
             </stream>
 
             <stream name="00:002">
-                <label>HHZ</label>
+                <label>DPZ</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -781,7 +780,7 @@
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -842,7 +841,7 @@
                      The channel represents a recorder stream. 
                      The name of the channel is given as an attribute. -->
                 <!-- Multiple channel elements with unique names can be used. -->
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <!-- The description of the channel. -->
                     <description>Vertical channel.</description>
 
@@ -870,7 +869,7 @@
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHN">
+                <channel name="DPN">
                     <description>Northwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00006</recorder_serial>
@@ -882,7 +881,7 @@
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHE">
+                <channel name="DPE">
                     <description>Eastwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00006</recorder_serial>
@@ -905,7 +904,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>00004</recorder_serial>
@@ -917,7 +916,7 @@
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHN">
+                <channel name="DPN">
                     <description>Northwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00004</recorder_serial>
@@ -929,7 +928,7 @@
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHE">
+                <channel name="DPE">
                     <description>Eastwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00004</recorder_serial>
@@ -951,7 +950,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>0000B</recorder_serial>
@@ -971,7 +970,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>0000B</recorder_serial>
@@ -991,7 +990,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>0000B</recorder_serial>
@@ -1013,7 +1012,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>00009</recorder_serial>
@@ -1033,7 +1032,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>00009</recorder_serial>
@@ -1053,7 +1052,7 @@
                 <coord_system>epsg:31258</coord_system>
                 <description></description>
 
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <description>Vertical channel.</description>
                     <assigned_stream>
                         <recorder_serial>00009</recorder_serial>
@@ -1069,14 +1068,14 @@
 	    
 	    <station name="MIT">
 	        <location name="A">
-		        <x>422586.186337578</x>
-		        <y>213734.685641031</y>
-		        <z>2054.0803914089</z>
+		        <x>422596.22</x>
+				<y>213710.47</y>
+				<z>2063.92</z>
 		        <coord_system>epsg:31258</coord_system>
 		        <description>
 		        </description>
 		        
-		        <channel name="HHZ">
+		        <channel name="DPZ">
 		            <description>Vertical channel.</description>
 		            <assigned_stream>
 			            <recorder_serial>00008</recorder_serial>
@@ -1090,14 +1089,14 @@
 	        </location>
 	        
 	        <location name="B">
-		        <x>422586.186337578</x>
-		        <y>213734.685641031</y>
-		        <z>2054.0803914089</z>
+		        <x>422587.37</x>
+				<y>213735.53</y>
+				<z>2051.51</z>
 		        <coord_system>epsg:31258</coord_system>
 		        <description>
 		        </description>
 		        
-		        <channel name="HHZ">
+		        <channel name="DPZ">
 		            <description>Vertical channel.</description>
 		            <assigned_stream>
 			            <recorder_serial>00008</recorder_serial>
@@ -1111,14 +1110,14 @@
 	        </location>
 	        
 	        <location name="C">
-		        <x>422586.186337578</x>
-		        <y>213734.685641031</y>
-		        <z>2054.0803914089</z>
+		        <x>422543.33</x>
+				<y>213738.73</y>
+				<z>2051.08</z>
 		        <coord_system>epsg:31258</coord_system>
 		        <description>
 		        </description>
 		        
-		        <channel name="HHZ">
+		        <channel name="DPZ">
 		            <description>Vertical channel.</description>
 		            <assigned_stream>
 			            <recorder_serial>00008</recorder_serial>
