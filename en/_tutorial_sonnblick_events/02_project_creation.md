@@ -89,7 +89,7 @@ resource ID
 
 ## Project directory
 
-After the project has been created successfully, a directory tree inside the *base directory* has been created. It holds the project file and data and log files created during runtime. The root folder of each project is the project name.
+After the project has been created successfully, a directory tree inside the *base directory* has been created. It holds the project file (tutorial.ppr), data- and log files created during runtime. The root folder of each project is the project name.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_projects$ tree tutorial/
