@@ -142,7 +142,7 @@ The following listing gives a commented example of a simple inventory with one 3
                 <output_unit>m/s</output_unit>
                 <deliver_unit>V</deliver_unit>
                 <component_parameter>
-		            <start_time>2016-01-01T00:00:00Z</start_time>
+                    <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
                     <sensitivity>81</sensitivity>
                     <response_paz>
@@ -187,7 +187,7 @@ The following listing gives a commented example of a simple inventory with one 3
                  recorder serial, model, producer and the stream name. -->
             <stream name="00:001">
                 <!-- The label of the stream. Gives the stream a readable name. -->
-                <label>HHZ</label>
+                <label>DPZ</label>
 
                 <!-- A stream parameter. -->
                 <!-- Multiple stream_parameter elements can be used. -->
@@ -234,7 +234,7 @@ The following listing gives a commented example of a simple inventory with one 3
             </stream>
 
             <stream name="00:002">
-                <label>HHN</label>
+                <label>DPN</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -252,7 +252,7 @@ The following listing gives a commented example of a simple inventory with one 3
             </stream>
 
             <stream name="00:003">
-                <label>HHE</label>
+                <label>DPE</label>
                 <stream_parameter>
                     <start_time>2016-01-01T00:00:00Z</start_time>
                     <end_time/>
@@ -312,7 +312,7 @@ The following listing gives a commented example of a simple inventory with one 3
                      The channel represents a recorder stream. 
                      The name of the channel is given as an attribute. -->
                 <!-- Multiple channel elements with unique names can be used. -->
-                <channel name="HHZ">
+                <channel name="DPZ">
                     <!-- The description of the channel. -->
                     <description>Vertical channel.</description>
 
@@ -340,7 +340,7 @@ The following listing gives a commented example of a simple inventory with one 3
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHN">
+                <channel name="DPN">
                     <description>Northwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00006</recorder_serial>
@@ -352,7 +352,7 @@ The following listing gives a commented example of a simple inventory with one 3
                     </assigned_stream>
                 </channel>
 
-                <channel name="HHE">
+                <channel name="DPE">
                     <description>Eastwards pointing channel.</description>
                     <assigned_stream>
                         <recorder_serial>00006</recorder_serial>
