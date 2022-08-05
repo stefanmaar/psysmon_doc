@@ -56,7 +56,7 @@ figures:
         caption: The resulting image of the data availability collection node showing the available data of the tutorial data set.
 
 ---
-## Create the availability collection node
+## Create the availability collection
 Create a collection named *availability* and add the two collection nodes `data inventory statistics` and `data availability` to the collection. Next disable the collection node `data availability`. You can disable the collection node by first selecting the node `data availability` in the collection listbox and than clicking the menu entry `disable node` from the context menu in the collection listbox.
 
 {% include insert_image.html key="disable-collection-node" %}
