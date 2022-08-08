@@ -171,6 +171,8 @@ scholar:
 
     type_order: [article, phdthesis, inproceedings, techreport, misc]
     type_aliases: {report: techreport}
+    sort_by: year
+    order: descending
 
 
 
