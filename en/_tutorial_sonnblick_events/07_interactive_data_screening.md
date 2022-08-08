@@ -120,7 +120,7 @@ The interactive screening of a dataset is a main application of psysmon. The dat
 
 
 ## Create the display collection
-Create a collectin named *display* and add the collectionnode `tracedisplay` to the collection.
+Create a collection named *display* and add the collection node `tracedisplay` to the collection.
 
 {% include insert_image.html key="display-collection" %}
 
