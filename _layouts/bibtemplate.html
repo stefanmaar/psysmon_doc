@@ -1,0 +1,39 @@
+---
+---
+<div class="text-justify">{{reference}}</div>
+{% if entry.doi %}
+<a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank">{{ entry.doi | prepend: 'http://doi.org/' }}</a>
+{% endif %}
+ 
+{% if entry.preprint %}
+    <a href="{{ entry.preprint }}">preprint</a><br>
+{% endif %}
+ 
+{% if entry.link %}
+    <a href="{{ entry.link }}">link</a><br>
+{% endif %}
+
+{% if entry.url %}
+<a href="{{ entry.url }}">{{ entry.url }}</a><br>
+{% endif %}
+
+{% if entry.local_url %}
+<a href="{{ site.url }}/assets/doc/{{ entry.local_url }}">download pdf</a><br>
+{% endif %}
+
+{% if entry.code %}
+    <a href="{{ entry.code }}">code</a><br>
+{% endif %}
+<a id="a{{entry.key}}" style="display: none;">
+<pre>{{entry.bibtex}}</pre>
+</a>
+<script>
+function toggleBibtex{{entry.key}}(parameter) {
+    var x= document.getElementById('a{{entry.key}}');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
