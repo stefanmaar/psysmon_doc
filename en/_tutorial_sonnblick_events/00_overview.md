@@ -19,7 +19,6 @@ chapters:
   - data-availability
   - data-screening
   - power-spectral-density
-  - probability-power-spectral-density
   - psd-visualization
   - ppsd-visualization
   - sta-lta-parameters
