@@ -37,15 +37,27 @@ figures:
         filename: screenshot_open_child_preferences.png
         caption: Open the preferences dialog of the time window looper child node using the context menu.
         
+    select-processing-node:
+        label: fig:select-processing-node
+        number: 5
+        filename: screenshot_select_processing_stack_node.png
+        caption: Select the convert to sensor units processing node.
+        
+    ps-with-convert-node:
+        label: fig:ps-with-convert-node
+        number: 6
+        filename: screenshot_ps_convert_sensor_units_added.png
+        caption: The convert to sensor units processing node added to the processing stack.
+        
     compute-psd-preferences:
         label: fig:compute-psd-preferences
-        number: 5
+        number: 7
         filename: screenshot_compute_psd_preferences.png
         caption: Set the preferences of the compute PSD looper child node.
         
     check-log-file:
         label: fig:check-log-file
-        number: 6
+        number: 8
         filename: screenshot_check_log_file.png
         caption: Get the log filename from the currently running process in the log area.
         
@@ -71,7 +83,7 @@ stefan@hausmeister:~/tutorial/psysmon_output$
 
 
 ## Create the psd collection
-Create a collection named *psd* and add the collection node `time window looper` to the collection. Then select the `time window looper` node in the collection listbox and add the `compute PSD` collection node, which is a `looper child`. The `compute PSD` node will be added as a sub-node of the time window looper in the collection node listbox.
+Create a collection named *psd* and add the collection node `time window looper` to the collection. Then select the `time window looper` node in the collection listbox and add the `processing stack` and then the `compute PSD` looper collection node. Both of these nodes are `looper children` and will be added to the time window looper as sub-nodes.
 
 The time window looper splits the specified time range into time windows and for each time window, the child nodes of the looper are executed.
 
@@ -116,10 +128,30 @@ output directory
 
 Keep the default values of the `processing` panel.
 
+## Configure the processing stack child node
+Select the `processing stack` node in the sub-tree of the time window looper and open the preferences editor using the context menu.
+
+{% include insert_image.html key="open-child-preferences" %}
+
+The preferences dialog of the `processing stack` child node will open.
+
+The `processing stack` is the same as the one that we already encountered in the tracedisplay when screening the seismic data. Add the `convert to sensor units` processing node to the processing stack using the `add` button and selecting the node from the opening dialog.
+
+{% include insert_image.html key="select-processing-node" %}
+
+The processing node will be added to the processing stack in the preferences dialog.
+
+{% include insert_image.html key="ps-with-convert-node" %}
+
+The `convert to sensor units` will convert the counts of the digital seismogram to the sensor input unit of the sensor specified in the geometry file. For the sensors used in the tutorial data set these unit is velocity (m/s). The conversion is done using the preamplification and bitweight of the data recorder and the sensitivity of the sensor. The effects of the transfer function of the sensor are not removed.
+
+The conversion from counts to sensor units is important to relate the computed PSD data to the global noise models when creating the spectrogram images.
+
+
 ## Configure the compute PSD child node
 Select the `compute PSD` node in the collection node and open the preferences editor using the context menu.
 
-{% include insert_image.html key="open-child-preferences" %}
+
 
 The preferences dialog of the `compute PSD` child node will open. 
 
@@ -149,23 +181,35 @@ The collection will create a directory structure in the output directory of the 
 ## Tracking a process using the log file
 You can track an collection execution process using the Linux tail command. First, get the filename of the log file of the process that you want to check. It is built using the name of the process with the `.log` file suffix. In the screenshot given below, the running process has the name `psd_20220808_152407_255098`, so the related log file can be found in the directory `psysmon_projects/tutorial/log` of your tutorial directory structure. Use the `-f` flag of the tail command to follow the updates of the log file.
 
+{% include insert_image.html key="check-log-file" %}
+
 ~~~console
-stefan@hausmeister:~/tutorial/psysmon_projects/tutorial/log$ tail -f psd_20220808_152407_255098.log 
-#LOG# - 2022-08-08 15:27:09,141 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MIT.A.DPZ.
-#LOG# - 2022-08-08 15:27:09,158 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Processing sliding window 1311/1536.
-#LOG# - 2022-08-08 15:27:09,159 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Initial stream request for time-span: 2018-10-31T19:45:00 to 2018-10-31T20:00:00 for scnl: [('MIT', 'DPZ', 'XX', 'A'), ('MOR', 'DPZ', 'XX', 'A')].
-#LOG# - 2022-08-08 15:27:09,177 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MIT.A.DPZ.
-#LOG# - 2022-08-08 15:27:09,194 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Processing sliding window 1312/1536.
-#LOG# - 2022-08-08 15:27:09,194 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Initial stream request for time-span: 2018-10-31T19:52:30 to 2018-10-31T20:07:30 for scnl: [('MIT', 'DPZ', 'XX', 'A'), ('MOR', 'DPZ', 'XX', 'A')].
-#LOG# - 2022-08-08 15:27:09,486 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MIT.A.DPZ.
+stefan@hausmeister:~/tutorial/psysmon_projects/tutorial/log$ tail -f psd_20220809_134207_310452.log 
+#LOG# - 2022-08-09 13:44:44,457 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Processing sliding window 1117/1536.
+#LOG# - 2022-08-09 13:44:44,458 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Initial stream request for time-span: 2018-10-30T19:30:00 to 2018-10-30T19:45:00 for scnl: [('MIT', 'DPZ', 'XX', 'A'), ('MOR', 'DPZ', 'XX', 'A')].
+#LOG# - 2022-08-09 13:44:44,487 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MIT.A.DPZ.
+#LOG# - 2022-08-09 13:44:44,505 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MOR.A.DPZ.
+#LOG# - 2022-08-09 13:44:44,523 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Processing sliding window 1118/1536.
+#LOG# - 2022-08-09 13:44:44,523 - INFO - psysmon.packages.core_looper.time_window_looper.SlidingWindowProcessor: Initial stream request for time-span: 2018-10-30T19:37:30 to 2018-10-30T19:52:30 for scnl: [('MIT', 'DPZ', 'XX', 'A'), ('MOR', 'DPZ', 'XX', 'A')].
+#LOG# - 2022-08-09 13:44:44,551 - INFO - psysmon.packages.frequency.compute_psd.ComputePsdNode: ###Processing trace with id XX.MIT.A.DPZ.
+^C
+stefan@hausmeister:~/tutorial/psysmon_projects/tutorial/log$ 
 ~~~
 
 ## The PSD output data
 The psd collection will save the computation results in a directory structure within the output directory specified in the `time window looper` node. The data is saved in hourly files organized in daily directories for each selected component. These data files will be used as an input for the computation of the long-term spectrogram images.
 
 ~~~console
-stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220808_152407_255098-time_window_looper$ tree -L 1 psd/MIT/DPZ/
-psd/MIT/DPZ/
+stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper$ tree -L 2 psd
+psd
+├── MIT
+│   └── DPZ
+└── MOR
+    └── DPZ
+
+4 directories, 0 files
+stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper$ tree -L 1 psd/MIT/DPZ
+psd/MIT/DPZ
 ├── 2018_298
 ├── 2018_299
 ├── 2018_300
@@ -176,7 +220,7 @@ psd/MIT/DPZ/
 └── 2018_305
 
 8 directories, 0 files
-stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220808_152407_255098-time_window_looper$ tree -L 1 psd/MIT/DPZ/2018_298
+stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper$ tree -L 1 psd/MIT/DPZ/2018_298
 psd/MIT/DPZ/2018_298
 ├── psd_20181025T000000_20181025T005230_MIT_DPZ_XX_A.db
 ├── psd_20181025T010000_20181025T015230_MIT_DPZ_XX_A.db
@@ -204,7 +248,7 @@ psd/MIT/DPZ/2018_298
 └── psd_20181025T230000_20181025T235230_MIT_DPZ_XX_A.db
 
 0 directories, 24 files
-stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220808_152407_255098-time_window_looper$ 
+stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper$ 
 ~~~
 
 
