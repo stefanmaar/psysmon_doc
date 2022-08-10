@@ -17,7 +17,7 @@ figures:
         label: fig:create-psd-collection
         number: 1
         filename: screenshot_create_psd_collection.png
-        caption: The psd collection with the time window looper node and the compute psd looper children node.
+        caption: The psd collection with the time window looper collection node with the processing stack and the compute psd looper children.
         
     looper-component-preferences:
         label: fig:looper-component-preferences
@@ -60,7 +60,7 @@ figures:
         number: 8
         filename: screenshot_check_log_file.png
         caption: Get the log filename from the currently running process in the log area.
-        
+            
 ---
 Psysmon provides so-called *looper collection nodes* that allow the creation of iterative execution of the *looper child* nodes. Currently the `time window looper` and the `event looper` are available. For the task to compute the power spectral density (PSD) for the whole data set we will use the `time window looper` which enables the processing of sliding time windows.
 
@@ -174,7 +174,7 @@ Confirm the preferences by clicking the `OK` button.
 
 
 ## Start the computation
-To start the computation of the PSD data, execute the collection by clicking the `Execute` Button. A new process will be started, but no dialog window will be opened. You can check the execution of the psd collection using the log file of the process.
+To start the computation of the PSD data, execute the collection by clicking the `Execute` button. A new process will be started, but no dialog window will be opened. You can check the execution of the psd collection using the log file of the process.
 
 The collection will create a directory structure in the output directory of the `time window looper` where the PSD data is saved as Python [shelve][python-shelve]{:target="blank"} files.
 
