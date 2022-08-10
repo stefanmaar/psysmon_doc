@@ -20,7 +20,7 @@ chapters:
   - data-screening
   - power-spectral-density
   - psd-visualization
-  - ppsd-visualization
+  - probability-power-spectral-density
   - sta-lta-parameters
   - sta-lta-detection
   - detection-binding
