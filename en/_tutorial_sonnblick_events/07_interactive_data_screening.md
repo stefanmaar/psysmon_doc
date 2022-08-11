@@ -173,6 +173,8 @@ You can shift the displayed data in time by using the `left` and `right` arrow k
 
 You can use the `+` and `-` keys to zoom in or out of the data. Again using the accelerator keys `SHIFT`, `CTRL` or `ALT` while pressing one of the zoom keys decreases the zoom step.
 
+You can use the datetime and duration edit fields on top of the tracedisplay window (just below the menu bar) to select a time range to display.
+
 ## Using shortcuts
 The tracedisplay dialog provides shortcuts for frequently used commands and options. The shortcuts are listend besides the menu entries in the submenus of the menu bar. For example, use `CTRL+E` to toggle the spectrogram view.
 
