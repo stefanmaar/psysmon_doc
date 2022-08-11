@@ -1,5 +1,5 @@
 ---
-title: "Probability Power Spectral Density"
+title: "PPSD computation"
 layout: doc_chapter
 subheadline: "Computation of the probability power spectral density."
 description: "Computation of the probability power spectral density."
