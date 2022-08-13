@@ -24,6 +24,8 @@ chapters:
   - sta-lta-parameters
   - sta-lta-detection
   - detection-binding
+  - visual-event-check
+  - event-export
   - characteristic-parameters
   - array-backazimuth
 
