@@ -10,7 +10,7 @@ namespace: tut_sbe_characteristic_parameters
 
 type: chapter
 
-permalink: characteristic_parameters
+permalink: characteristic_parameters/
 
 figures:
     collection-event-parameters:

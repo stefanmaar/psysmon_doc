@@ -10,7 +10,7 @@ namespace: tut_sbe_sta_lta_parameters
 
 type: chapter
 
-permalink: sta_lta_parameters
+permalink: sta_lta_parameters/
 
 figures:
     load-collection:

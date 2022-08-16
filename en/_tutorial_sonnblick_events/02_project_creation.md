@@ -10,7 +10,7 @@ namespace: tut_sbe_project_creation
 
 type: chapter
 
-permalink: project_creation
+permalink: project_creation/
 
 figures:
     create-new-project-dialog:

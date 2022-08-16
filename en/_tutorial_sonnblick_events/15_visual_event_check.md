@@ -10,7 +10,7 @@ namespace: tut_sbe_visual_event_check
 
 type: chapter
 
-permalink: visual_event_check
+permalink: visual_event_check/
 
 figures:
     tracedisplay-preferences:

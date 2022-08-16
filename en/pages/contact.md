@@ -7,7 +7,7 @@ teaser: ""
 
 namespace: contact
 
-permalink: /contact/
+permalink: contact/
 
 header: no
 

@@ -10,7 +10,7 @@ namespace: tut_sbe_event_export
 
 type: chapter
 
-permalink: event_export
+permalink: event_export/
 
 figures:
     collection-export:

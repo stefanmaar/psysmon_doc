@@ -10,7 +10,7 @@ namespace: tut_sbe_data_screening
 
 type: chapter
 
-permalink: data_screening
+permalink: data_screening/
 
 figures:
     display-collection:

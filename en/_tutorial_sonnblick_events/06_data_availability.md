@@ -10,7 +10,7 @@ namespace: tut_sbe_data_availability
 
 type: chapter
 
-permalink: data_availability
+permalink: data_availability/
 
 figures:
     disable-collection-node:

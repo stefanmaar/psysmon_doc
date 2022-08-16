@@ -10,7 +10,7 @@ namespace: tut_sbe_ppsd_visualization
 
 type: chapter
 
-permalink: ppsd_visualization
+permalink: ppsd_visualization/
 
 figures:
     create-ppsd-collection:

@@ -10,7 +10,7 @@ namespace: tut_sbe_import_data
 
 type: chapter
 
-permalink: import_data
+permalink: import_data/
 
 figures:
     open-recent-project:

@@ -6,7 +6,7 @@ teaser: "We designed our website to provide information, not to gather it. We li
 
 namespace: data_privacy_statement
 
-permalink: /data-privacy-statement/
+permalink: data-privacy-statement/
 ---
 ## Access to the website
 

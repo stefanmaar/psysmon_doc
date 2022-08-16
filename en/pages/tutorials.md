@@ -11,7 +11,7 @@ type: chapter
 nav_order: 1
 ml_collection: tutorials
 
-permalink: tutorials
+permalink: tutorials/
 ---
 {% comment %}ml data: {{ site.data['ml'] }}{% endcomment %}
 {% include tut_overview_widget.html prefix="tutorial" %}

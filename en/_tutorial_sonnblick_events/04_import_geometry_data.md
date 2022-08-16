@@ -10,7 +10,7 @@ namespace: tut_sbe_import_geometry
 
 type: chapter
 
-permalink: import_geometry
+permalink: import_geometry/
 
 figures:
     create-geometry-collection:

@@ -10,7 +10,7 @@ namespace: tut_sbe_sta_lta_detection
 
 type: chapter
 
-permalink: sta_lta_detection
+permalink: sta_lta_detection/
 
 figures:
     catalogs-collection:

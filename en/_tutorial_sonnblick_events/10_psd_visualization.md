@@ -10,7 +10,7 @@ namespace: tut_sbe_psd_visualization
 
 type: chapter
 
-permalink: psd_visualization
+permalink: psd_visualization/
 
 figures:
     create-collection:

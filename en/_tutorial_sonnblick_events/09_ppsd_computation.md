@@ -10,7 +10,7 @@ namespace: tut_sbe_ppsd_computation
 
 type: chapter
 
-permalink: ppsd_computation
+permalink: ppsd_computation/
 
 figures:
 

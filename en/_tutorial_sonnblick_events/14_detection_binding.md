@@ -10,7 +10,7 @@ namespace: tut_sbe_detection_binding
 
 type: chapter
 
-permalink: detection_binding
+permalink: detection_binding/
 
 figures:
     catalogs-collection:

@@ -10,7 +10,7 @@ namespace: tut_sbe_psd_computation
 
 type: chapter
 
-permalink: psd_computation
+permalink: psd_computation/
 
 figures:
     create-psd-collection:

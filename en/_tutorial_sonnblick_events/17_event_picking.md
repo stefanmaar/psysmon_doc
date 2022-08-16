@@ -10,7 +10,7 @@ namespace: tut_sbe_event_picking
 
 type: chapter
 
-permalink: event_picking
+permalink: event_picking/
 
 figures:
     collection-display:

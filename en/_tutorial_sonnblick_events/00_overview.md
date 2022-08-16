@@ -29,7 +29,7 @@ chapters:
   - event-picking
   - characteristic-parameters
 
-permalink: overview
+permalink: overview/
 
 ---
 

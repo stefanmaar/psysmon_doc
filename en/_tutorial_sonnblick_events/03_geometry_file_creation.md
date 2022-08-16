@@ -11,7 +11,7 @@ namespace: tut_sbe_geometry_file
 
 type: chapter
 
-permalink: geometry_file
+permalink: geometry_file/
 
 figures: 
     example-network-inventory:

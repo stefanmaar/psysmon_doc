@@ -11,7 +11,7 @@ namespace: tut_sbe_getting_started
 
 type: chapter
 
-permalink: project_getting_started
+permalink: getting_started/
 
 figures:
     main-window:
