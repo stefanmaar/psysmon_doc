@@ -11,4 +11,6 @@ cc-by-sa-4.0:
     url:
         de: http://creativecommons.org/licenses/by-sa/4.0/deed.de
         en: https://creativecommons.org/licenses/by-sa/4.0/deed.en
-    icon_class: "cc cc-by-sa"
+    icon_img:
+        de: cc_by_sa.png
+        en: cc_by_sa.png
