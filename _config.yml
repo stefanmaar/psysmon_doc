@@ -142,6 +142,11 @@ defaults:
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
       author: Stefan Mertl     # Default author for pages
+  -
+    scope:
+      path: "en/_tutorial_sonnblick_events"
+    values:
+      license: cc-by-sa-4.0
 
 
 
