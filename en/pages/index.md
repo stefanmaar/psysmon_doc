@@ -1,17 +1,16 @@
 ---
 title: psysmon Documentation
-layout: default
+layout: page
 description: Documentation of the seismological prototyping software psysmon.
 
 namespace: index
 
 permalink: /index.html
 ---
-# Documentation Outdated
 
-The psysmon documentation was outdated, I had to take it offline, because it's currently not possible to keep it up to date.
+The psysmon documentation is a work in progress. Currently an extensive tutorial describing the usage of psysmon and its most important features is available. In the tutorial [Sonnblick Events][tut-sonnblick-events] the complete workflow from installing psysmon and importing a seismic data set all the way to the detection of seismic events is covered. 
 
-I'm working on a relaunch.
+A dedicated user documentation describing the individual psysmon features and an API-documentation is in the making.
 
-For questions contact me per email [info@mertl-research.at](mailto:info@mertl-research.at).
+[tut-sonnblick-events]: {% link en/_tutorial_sonnblick_events/00_overview.md %}
 
