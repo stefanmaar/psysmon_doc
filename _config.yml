@@ -148,6 +148,14 @@ defaults:
     values:
       license: cc-by-sa-4.0
 
+  -
+    scope:
+      path: "en/_tutorial_example"
+    values:
+      noindex: true
+      sitemap:
+        exclude: true
+
 
 
 #      __  ___      ____  _    __                                           
