@@ -11,8 +11,6 @@ permalink: /contact/
 
 header: no
 
-image:
-    title: adhocpad_night.jpg
 ---
 The psysmon documentation is a project of *Mertl Research GmbH*.
 
