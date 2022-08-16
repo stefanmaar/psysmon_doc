@@ -9,9 +9,7 @@
             <div class="top-bar-title hide-for-small-only">
                 <ul class="menu simple">
                     <li class="top-bar-title-logo">
-                        <a href="https://www.mertl-research.at/design/generative_logo/" target="blank">
-                            <img src="{{site.urlimg}}generative_logo/mr_gen_logo.png" class="header_logo" alt="This is a generative logo based on seismic data." title="This is a generative logo based on seismic data. Click to learn more." style="float:left;"\>
-                        </a>
+                        <img src="{{site.urlimg}}psysmon_logo/psysmon_logo.png" class="header_logo" alt="The psysmon logo." title="The psysmon logo" style="float:left;"\>
                     </li>
                     <li class="top-bar-title-name"> 
                         <a href="{% translate_link index | relative_url %}" title="Take me to the main page.">{% translate global.title %}</a>
@@ -35,6 +33,7 @@
                     {% endfor %}
 
                     <!-- The language selector. -->
+                    {% if site.multilang.languages.size == 2 %}  
                     {% if page.lang == "de" %}
                       {% capture link_en %}{% translate_link {{page.namespace}} -l en %}{% endcapture %}
                       {% comment %}{% assign link_en = translate_link {{page.namespace}} -l en %}{% endcomment %}
@@ -58,6 +57,7 @@
                         <li class="inactive">
                           <a href="{{ link_de | relative_url }}" alt="Sorry, no translation available."class="inactive" >{% translate languages.german %}</a>
                         </li>
+                      {% endif %}
                       {% endif %}
                     {% endif %}
                 </ul>
