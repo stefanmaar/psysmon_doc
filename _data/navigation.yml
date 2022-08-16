@@ -1,7 +1,4 @@
 left:
-    - title: userdoc
-      namespace: userdoc
-
     - title: tutorials
       namespace: tutorials
 
