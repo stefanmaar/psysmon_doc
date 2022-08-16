@@ -26,10 +26,15 @@ chapters:
   - detection-binding
   - visual-event-check
   - event-export
+  - event-picking
   - characteristic-parameters
-  - array-backazimuth
 
 permalink: overview
----
-## Overview
 
+---
+
+The creation of this tutorial was supported by [ZAMG][zamg]{:target="blank"}.
+
+---
+
+[zamg]: https://www.zamg.ac.at
