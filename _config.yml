@@ -125,7 +125,13 @@ pagination:
 # Default Settings
 
 defaults:
-
+  -
+    scope:
+      path: "" 			# an empty string here means all files in the project
+    values:
+      author: Stefan Mertl
+      copyright:
+        author: "Stefan Mertl"
   -
     scope:
       path: "" 				# an empty string here means all files in the project
@@ -146,7 +152,7 @@ defaults:
 #  /_/  /_/\__,_/_/\__/_/  /_____/\__,_/_/ /_/\__, /\__,_/\__,_/\__, /\___/ 
 #                                            /____/            /____/     
 multilang:
-    languages: ["de", "en"]
+    languages: ["en",]
     default_language: "en"
 
 
