@@ -4,12 +4,19 @@
     {% for cur_chapter in page.chapters %}
       {% assign chapter_page = chapters | where: "slug", cur_chapter %}
       {% assign chapter_page = chapter_page[0] %}
+      {% capture jpg_available %}{% file_exists {{ site.image_dir }}/{{ chapter_page.image_dir }}/section_image.jpg %}{% endcapture %}
+      {% if jpg_available == "true" %}
+        {% assign section_image = "section_image.jpg" %}
+      {% else %}
+        {% assign section_image = "section_image.png" %}   
+      {% endif %}
       <div class="cell">
         <div class="card">
 	      <div class="card-divider">
             <b>{{ chapter_page.title }} </b>
 	      </div>
-	      <a href="{{ chapter_page.url | relative_url }}"><img src="{{ site.image_dir }}/{{ chapter_page.image_dir }}/section_image.png" style="width: 100%;"></a>
+          
+	      <a href="{{ chapter_page.url | relative_url }}"><img src="{{ site.image_dir }}/{{ chapter_page.image_dir }}/{{ section_image }}" style="width: 100%;"></a>
 	      <div class="card-section">
 	        {{ chapter_page.teaser }}
 	      </div>
