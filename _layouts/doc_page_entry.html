@@ -60,6 +60,9 @@ layout: default
                     {% endif %}
                     <hr>
                     {% comment %}{{ page }}{% endcomment %}
+                    <span itemprop="articleSection">
+                      {{ content }}
+		            </span>
 		            {% include doc_chapter_widget.html collection=page.ml_collection %}
 		    
             </div>
