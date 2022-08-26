@@ -22,7 +22,7 @@
 
 
     {% if caption or credit %}
-        <figcaption>
+        <figcaption class="lang_{{ page.lang }}">
             {% if caption %}{{ caption | flatify | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} {%if credit %}<i>{{ credit }}</i>{% endif %}
         </figcaption>
     {% endif %}

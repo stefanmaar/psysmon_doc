@@ -9,7 +9,7 @@
 
 <table {% if data.label %}id="{{ data.label }}"{% endif %}>
   {% if data.caption %}
-  <caption>{{ data.caption | markdownify | remove: "<p>" | remove: "</p>" }}</caption>
+  <caption class="lang_{{ page.lang }}">{{ data.caption | markdownify | remove: "<p>" | remove: "</p>" }}</caption>
   {% endif %}
   {% for row in site.data.tables[data.data] %}
   {% if forloop.first %}

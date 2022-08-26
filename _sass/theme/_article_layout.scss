@@ -28,9 +28,14 @@ article {
 	    line-height: 1.2;
     }
 
-    figcaption::before {
+    figcaption.lang_de::before {
 	    counter-increment: cnt_fig;
 	    content: "Abbildung " counter(cnt_fig) ": ";
+    }
+
+    figcaption.lang_en::before {
+	    counter-increment: cnt_fig;
+	    content: "Figure " counter(cnt_fig) ": ";
     }
 
     table {
@@ -41,9 +46,15 @@ article {
 	        font-style: italic;
 	        line-height: 1.2;
 	    }
-	    caption::before {
+        
+	    caption.lang_de::before {
 	        counter-increment: cnt_table;
 	        content: "Tabelle " counter(cnt_table) ": ";
+	    }
+
+        caption.lang_en::before {
+	        counter-increment: cnt_table;
+	        content: "Table " counter(cnt_table) ": ";
 	    }
     }
 
