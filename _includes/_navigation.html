@@ -9,7 +9,7 @@
             <div class="top-bar-title hide-for-small-only">
                 <ul class="menu simple">
                     <li class="top-bar-title-logo">
-                        <img src="{{site.urlimg}}psysmon_logo/psysmon_logo.png" class="header_logo" alt="The psysmon logo." title="The psysmon logo" style="float:left;"\>
+                        <img src="{{ site.image_dir | append: 'psysmon_logo/psysmon_logo.png' | relative_url }}" class="header_logo" alt="The psysmon logo." title="The psysmon logo" style="float:left;"\>
                     </li>
                     <li class="top-bar-title-name"> 
                         <a href="{% translate_link index | relative_url %}" title="Take me to the main page.">{% translate global.title %}</a>
