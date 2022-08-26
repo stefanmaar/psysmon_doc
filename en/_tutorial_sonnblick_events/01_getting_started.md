@@ -97,7 +97,7 @@ Successfully installed pillow-9.2.0 six-1.16.0 wxPython-4.1.1
 ~~~
 
 ### Installing psysmon from Github
-psysmon is not yet available at PyPI. It is recommended to install it using the source code available on Github at [https://github.com/stefanmaar/psysmon](https://github.com/stefanmaar/psysmon){:target="blank"). Using the code from the Github repository ensures, that you are working with the latest version and eventual bugfixes can be easily incorporated.
+psysmon is not yet available at PyPI. It is recommended to install it using the source code available on Github at [https://github.com/stefanmaar/psysmon](https://github.com/stefanmaar/psysmon){:target="blank"}. Using the code from the Github repository ensures, that you are working with the latest version and eventual bugfixes can be easily incorporated.
 
 To install psysmon from the Github repository you first have to clone the repository and then install it using pip in the development mode. Using the development mode allows that changes in the psysmon repository have an immediate effect on the working psysmon program.
 

@@ -3,7 +3,7 @@ title: "Data availability"
 layout: doc_chapter
 subheadline: "Getting an overview of the available data."
 description: "Getting an overview of the available data."
-teaser: "After the data has been imported into the psysmon database, its a good point to get an overview of the imported data. This helps to check if the imported amount of data fits the expected data range. This is useful to detect potentially missing data or possible fundamental problems with the data format."
+teaser: "After the data has been imported into the psysmon database, its a good point to get an overview of the imported data. This helps to check if the imported amount of data fits the expected data time range and to  detect potentially missing data or possible fundamental problems with e.g. the data format."
 image_dir: tut_sbe/data_availability
 
 namespace: tut_sbe_data_availability
@@ -61,7 +61,7 @@ Create a collection named *availability* and add the two collection nodes `data 
 
 {% include insert_image.html key="disable-collection-node" %}
 
-The name of the disabled collection node will appear in a light gray color and the icon of the node will be changed to a cross. A disabled collection node will not be ignored when executing the collection.
+The name of the disabled collection node will appear in a light gray color and the icon of the node will be changed to a cross. A disabled collection node will be ignored when executing the collection.
 
 {% include insert_image.html key="disabled-availability-node" %}
 
@@ -102,18 +102,15 @@ stefan@hausmeister:~/tutorial$
 
 ### Enable the data availability collection node
 Enable the `data availability` node and disable the `data inventory statistics` node using the context menus.
-Afterwards execute the collection node by clicking the `execute button. 
 
 {% include insert_image.html key="disabled-statistics-node" %}
 
 ### Edit the collection node preferences
-Before executing the collection, the preferences of the `data availability` collection node have to be set. Open the collection node preferences by selecting the `data availability` node and clicking the menu entry `edit node` in the context menu. The preferences dialog of the selected collection node will open. Select all stations and channels to process and set the process timespan according to the limits given in the `data inventory statistics` dialog. The start time is *2018-10-25T00:00:00* and the end time is *2019-11-02T00:00:00*. Set the `window mode` to `whole`.
+Before executing the collection, the preferences of the `data availability` collection node have to be set. Open the collection node preferences by selecting the `data availability` node and clicking the menu entry `edit node` in the context menu. The preferences dialog of the selected collection node opens. Select all stations and channels to process and set the process time span according to the limits given in the `data inventory statistics` dialog. The start time is *2018-10-25T00:00:00* and the end time is *2019-11-02T00:00:00*. Set the `window mode` to `whole`. After that, close the `data inventory statistics` dialog.
 
-The `window mode` preference can be used to specify the timespan into which the whole timespan should be split. For each time window (e.g. daily, weekly,...) an individual availability image will be created. The range of the tutorial dataset is not long, so we will plot the data availability of the complete time span.
+The `window mode` preference can be used to specify the time span into which the whole time span should be split. For each time window (e.g. daily, weekly,...) an individual availability image will be created. The range of the tutorial data set is not long, so we will plot the data availability of the complete time span.
 
-The output directory `/home/stefan/tutorial/psysmon_output` can be set in the `output` page of the preferences dialog (change the filepath to fit the output path on your filesystem). The list of available pages is given in the listbox at the left side of the preferences dialog.
-
-You can close the `data inventory statistics` dialog after now, it was useful to select the limits of the data availability timespan.
+The output directory `/home/stefan/tutorial/psysmon_output` can be set in the `output` page of the preferences dialog (change the file path to fit the output path on your file system). The list of available pages is given in the listbox at the left side of the preferences dialog.
 
 The settings in the preferences manager should look like in the following two screenshots. Confirm the settings and close the preferences dialog by clicking the `OK` button.
 
@@ -129,7 +126,7 @@ After the execution of the collection was started, no dialog window will appear.
 Don't forget to save the project.
 
 ### Checking the availability plots
-The results of a collection node will allways be placed in a unique folder named using the uniform resource identifier of the collection and the timestamp of the execution. This prevents that results are overwritten when executing the collection subsequently (e.g. with changed preferences).
+The results of a collection node will always be placed in a unique folder named using the uniform resource identifier of the collection and the timestamp of the execution. This prevents that results are overwritten when executing the same collection repeatedly (e.g. with changed preferences).
 
 The following listing shows the data structure created when executing the above collection. 
 

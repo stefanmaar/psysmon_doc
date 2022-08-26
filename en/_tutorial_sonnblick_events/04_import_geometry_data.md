@@ -39,62 +39,62 @@ figures:
         
     edit-geometry-node-added:
         label: "fig:edit-geometry-node-added"
-        number: 4
+        number: 5
         filename: screenshot_edit_geometry_node_added.png
         caption: "The edit geometry collection node should appear in the collection listbox on the left side."
         
     execute-geometry-collection:
         label: "fig:execute-geometry-collection"
-        number: 5
+        number: 6
         filename: screenshot_execute_collection.png
-        caption: "After executing the geometry collection, the geometry editor dialog should open up."
+        caption: "The execution of the geometry collection opens the geometry editor dialog."
         
     import-from-xml:
         label: "fig:import-from-xml"
-        number: 6
+        number: 7
         filename: screenshot_import_geometry_from_xml.png
         caption: "Start importing a geometry from a XML file by selecting the menu File->Import from XML."
         
     geometry-file-imported:
         label: "fig:geometry-file-imported"
-        number: 7
+        number: 8
         filename: screenshot_geometry_file_imported.png
         caption: "The geometry editor right after the import of a geometry file. The seisrock_sbk inventory was added as a XML inventory below the db_inventory. All elements of the inventory are expanded."
         
     geometry-overview:
         label: "fig:geometry-overview"
-        number: 8
+        number: 9
         filename: screenshot_geometry_overview.png
         caption: "Overview of the tutorial inventory."
         
     write-to-database:
         label: "fig:write-to-database"
-        number: 9
+        number: 10
         filename: screenshot_write_to_database.png
         caption: "Select the XML inventory and then click the menu Edit->Write to database."
         
     written-to-database:
         label: "fig:written-to-database"
-        number: 10
+        number: 11
         filename: screenshot_xml_inventory_written_to_database.png
         caption: "After the XML inventory was written to the database, the database inventory db_inventory is shown expanded."
         
     db-inventory-overview:
         label: "fig:db-inventory-overview"
-        number: 11
+        number: 12
         filename: screenshot_db_inventory_overview.png
         caption: "The overview of the data base inventory. After a successful import it should contain the same elements as the XML inventory."
         
     inventory-map-view:
         label: "fig:inventory-map-view"
-        number: 12
+        number: 13
         filename: screenshot_inventory_map_view.png
         caption: "The map view of an inventory can be opened by selecting the map view tap in the panel view."
 ---
-To import the station layout of the seismic network installed at *Hoher Sonnblick* the file `seisrock_sbk_inventory.xml` of the tutorial data set is needed. Make shure, that you have this file available at your filesystem.
+To import the station layout of the seismic network installed at *Hoher Sonnblick* the file `seisrock_sbk_inventory.xml` of the tutorial data set is needed. Make sure, that you have this file available at your file system.
 
 ## Opening the geometry editor
-To import the geometry file, the collection node `edit geometry` has to be executed. The access the geometry editor using the `edit geometry` collection node involves the follwing steps.
+To import the geometry file, the collection node `edit geometry` has to be executed. The access the geometry editor using the `edit geometry` collection node involves the following steps.
 
 ### Create a collection named geometry
 To create a new collection, move the mouse pointer inside the collection listbox on the left side of the window and then open the context menu by clicking the right mouse button. In the context menu click the menu entry `new collection`.
@@ -121,7 +121,7 @@ If you are wondering about the warning message marked in orange in the log area,
 {% include insert_image.html key="edit-geometry-node-added" %}
 
 ### Execute the geometry collection
-To open the geometry editor you now have to execute the geometry collection. This is done by clicking the `execute` button at the bottom of the collection listbox. The geometry editor should be shown. For this tutorial, now geometry has been defined so far, so an empty database inventory named `db_inventory` will be shown in the editor. The lists for the available sensors, recorders, networks and arrays should be empty at that point.
+To open the geometry editor you now have to execute the geometry collection. This is done by clicking the `execute` button at the bottom of the collection listbox. For this tutorial, no geometry has been defined so far, so an empty database inventory named `db_inventory` is shown in the editor. The lists for the available sensors, recorders, stations, networks and arrays is empty at that point.
 
 {% include insert_image.html key="execute-geometry-collection" %}
 
@@ -135,7 +135,7 @@ A file selection dialog will open. Navigate to the geometry file `seisrock_sbk_i
 
 {% include insert_image.html key="geometry-file-imported" %}
 
-You can collapse the whole inentory tree by clicking the `seisrock_sbk(xml)` inventory item in the inventory tree and then opening the context menu by clicking the right mouse button. Select the `collapse` menu entry in the context menu. The `seisrock_sbk(xml)` inventory tree will be collapsed. Expand the desired tree items by clicking the triangles on the left of the inventory tree items.
+You can collapse the whole inventory tree by clicking the `seisrock_sbk(xml)` inventory item in the inventory tree and then opening the context menu by clicking the right mouse button. Select the `collapse` menu entry in the context menu. The `seisrock_sbk(xml)` inventory tree will be collapsed. Expand the desired tree items by clicking the triangles on the left of the inventory tree items.
 
 Selecting items in the inventory tree will show details of the item in the `list view` panel on the right side of the geometry editor. In the following example I have expanded all items on level 1 of the inventory tree (Sensors, Recorders, Networks, Arrays) and the network `XX` to show the stations of the network. I have selected the network `XX` item in the inventory tree to display the network summary in the list view.
 
@@ -154,12 +154,12 @@ After the XML inventory was written successfully to the database, the database i
 
 {% include insert_image.html key="written-to-database" %}
 
-Use the context menu and the expand/collapse triangles of the inventory tree as described above to create an overview of the database inventory in the inventory tree and the list view.
+As described above, use the context menu and the expand/collapse triangles of the inventory tree to create an overview of the database inventory in the inventory tree and the list view. After a successful import the database inventory contains the same elements as the XML inventory.
 
 {% include insert_image.html key="db-inventory-overview" %}
 
 ## Map view of the inventory
-The map view of the inventory selected in the inventory tree can be opened by selecting the `map view` tab in the panel view of the geometry editor. This will swap from the list view to the map view showing the positions of the station locations. The 5 stations of the Sonnblick network should be shown. Stations MOR, PIL and MIT are arrays with three locations A, B and C.
+The map view of the selected inventory can be opened by selecting the `map view` tab in the panel view of the geometry editor.The map view visualizes the station locations of the inventory. The 5 stations of the Sonnblick network are shown. Stations MOR, PIL and MIT are arrays with three locations A, B and C.
 
 {% include insert_image.html key="inventory-map-view" %}
 

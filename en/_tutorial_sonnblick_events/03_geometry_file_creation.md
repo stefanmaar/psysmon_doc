@@ -20,15 +20,15 @@ figures:
         filename: example_network_inventory.png
         caption: Relationship of the inventory elements of the example network inventory.
 ---
-To work with timeseries data in psysmon, the positions and assignments of the stations, data recorders and sensors have to be known. The instrument and station inventory is stored in the psysmon database. The layout of the station inventory can be created in psysmon using a graphical user interface, alltough a more convenient and manageable way is to create a XML geometry file defining the station geometry. This geometry file can be imported into the psysmon database.
+To work with time series data in psysmon, the positions and assignments of the stations, data recorders and sensors have to be known. The instrument and station inventory is stored in the psysmon database. The layout of the station inventory can be created in psysmon using a graphical user interface, although a more convenient and manageable way is to create a XML geometry file defining the station geometry. The XML file can be created using a text- or XML editor. This geometry file can then be imported into the psysmon database.
 
-The geometry file holds an inventory of main elements like sensors, recorders, stations, networks and arrays. Each of the main elements may contain other sub-elements like components of a sensor (e.g. vertical, east, north) or data streams of a recorder. The elements of the inventory can be assigned to others to create a representation of the physical station layout. The assignment of one element to another is usually limited by a time period. Using this time period it is easy to keep track of changes in the station layout (e.g. swapping of senors or recorders, changes in the sampling rate of a recorder, ...).
+The geometry file is an inventory of main elements used to design a seismic measurement setup and how they interrelate to each other. The main elements are sensors, recorders, stations, networks and arrays. Each of the main elements may contain other sub-elements like components of a sensor (e.g. vertical, east, north) or data streams of a recorder. The elements of the inventory are assigned to each other to represent the actual physical layout. For many of the assigned elements time periods can be defined, which makes it feasable to keep track of changes in the station layout (e.g. swapping of senors or recorders, changes in the sampling rate of a recorder, ...).
 
 Download the [commented geometry file][file:commented-geometry-file]{:target="blank"} used for this tutorial to inspect the various elements in the geometry file.
 
 
 ## Example network inventory 
-The following listing gives a commented example of a simple inventory with one 3-component sensor, one recorder and one station in a network. Repeating elements have not been commented. [Figure {{ page.figures.example-network-inventory.number }}][fig:example-network-inventory] outlines the relationship of the elements in the inventory example.
+The following listing gives a commented example of a simple inventory with one 3-component sensor, one recorder and one station assigned to one network. Repeating elements have not been commented. [Figure {{ page.figures.example-network-inventory.number }}][fig:example-network-inventory] outlines the relationship of the elements in the inventory example.
 
 {% include insert_image.html key="example-network-inventory" %}
 
@@ -205,7 +205,7 @@ The following listing gives a commented example of a simple inventory with one 3
                     <!-- The bitweight of the data stream.
                          The units depend on the recorder, they should fit the
                          deliver_unit of the assigned component [deliver_unit/count]. 
-                         Usually the stream digitizes a voltag, so the 
+                         Usually the stream digitizes a voltage, so the 
                          units are V/count. -->
                     <bitweight>2.98023e-07</bitweight>                    
                 </stream_parameter>

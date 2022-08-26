@@ -65,7 +65,7 @@ figures:
         label: fig:open-import-data-preferences
         number: 9
         filename: screenshot_open_import_data_preferences.png
-        caption: Open the preferences dialog of the import filesystem data using the context menu in the collection listbox.
+        caption: Open the preferences dialog of the import filesystem data node using the context menu in the collection listbox.
         
     set-import-data-preferences:
         label: fig:set-import-data-preferences
@@ -101,7 +101,7 @@ A dialog asking for the user and password will open. Enter the database user nam
 ## Configure the data source
 
 ### Open the waveclient editor
-Click the menu entry `Project->Data sources` to open the waveclient editor. The editor will show the default database waveclient named *db client*. 
+Click the menu entry `Project->Data sources` to open the waveclient editor. The editor shows the default database waveclient named *db client*. 
 
 {% include insert_image.html key="waveclient-editor" %}
 
@@ -110,7 +110,7 @@ Select the *db client* and click the `edit` button. The wavelient options dialog
 
 {% include insert_image.html key="waveclient-options" %}
 
-I will now add a description by typing it into the description edit field. Next I add the waveform directory pointing to the base of the directory of the miniseed files of the tutorial data set. To add a waveform directory click the `add` button on the right of the waveclient options dialog. The *edit waveform directory* dialog will open, where the properties of the waveform directory can be entered.
+Next add the waveform directory pointing to the base of the directory of the miniseed files of the tutorial data set. To add a waveform directory click the `add` button on the right of the waveclient options dialog. The *edit waveform directory* dialog will open, where the properties of the waveform directory can be entered.
 
 {% include insert_image.html key="add-waveform-directory" %}
 
@@ -123,11 +123,11 @@ description
 file extension
 : The file extension sets the search wildcards when scanning the waveform directory for data files. I'm using the default values **.msd, *.mseed*.
 
-Confirm the properties by clicking the 'OK' button. The *edit waveform directory* dialog will close and the waveform directory will appear in the *Edit the waveclient options* dialog.
+Confirm the properties by clicking the 'OK' button. The *edit waveform directory* dialog closes and the waveform directory appears in the *Edit the waveclient options* dialog.
 
 {% include insert_image.html key="waveclient-options-with-waveform-directory" %}
 
-Finally I have added the description *"The default database client."*.
+Finally add the description *"The default database client."* for the waveclient.
 
 {% include insert_image.html key="waveclient-options-with-description" %}
 
@@ -158,7 +158,7 @@ The `import filesystem data` collection node provides a dialog for editing param
 
 {% include insert_image.html key="open-import-data-preferences" %}
 
-The preferences dialog of the selected collection node will open. The waveform directory listbox should show the waveform directory that you have created following the steps above. Select this waveform directory with *db_id* 1 so that it is highlighted and click the `OK` button to confirm the selection. Leave all other parameters in the dialog unchanged.
+The preferences dialog of the selected collection node will open. The waveform directory listbox should show the waveform directory that you have created following the steps above. Select this waveform directory with *db_id* 1 so that it is highlighted. Leave all other parameters in the dialog unchanged. Click the `OK` button to confirm the selection.
 
 {% include insert_image.html key="set-import-data-preferences" %}
 
@@ -320,7 +320,7 @@ The content of the log file of the `data import` collection should look like the
 ~~~
 
 ## Checking the database
-You can verify that the that has been imported to the psysmon database using the mysql client in the Linux terminal. The involved database tables are `tutorial_waveform_dir`, `tutorial_datafile` and `tutorial_traceheader`. `tutorial_waveform_dir` gives the waveform directory, which is references in the `tutorial_datafile` using the `wf_id` column. You can see the relative filepath in the filename column of the `tutorial_datafile` table. The header information of the data files is given in table `tutorial_traceheader` linking to the `tutorial_datafile` using the `datafile_id` column.
+You can verify that the data has been imported to the psysmon database using the mysql client in the Linux terminal. The involved database tables are `tutorial_waveform_dir`, `tutorial_datafile` and `tutorial_traceheader`. Linking to entries in other tables is usually done by their ids. `tutorial_waveform_dir` describes the waveform directory, which is referenced in the `tutorial_datafile` using the `wf_id` column. The relative filepath to the individual data files is shown in the column `filename`  of the `tutorial_datafile` table. The header information of the data files is given in table `tutorial_traceheader`. The `datafile_id` column in this table links to the `id` column in the `tutorial_datafile` table..
 
 ~~~console
 stefan@hausmeister:~$ mysql -u tutorial -p
@@ -386,8 +386,7 @@ stefan@hausmeister:~$
 ~~~
 
 ## Save the project
-If not done yet, save the project by selecting the menu entry `File->Save project`. Its fine to save the project frequently to avoid loosing changes of collection node parameters in the current collection. Saving the project has no effect on the data imported to the database (e.g. the geometery or the currently imported data files).
-
+If not done yet, save the project by selecting the menu entry `File->Save project`. Its fine to save the project frequently to avoid loosing changes of collection node parameters in the current collection.
 
 
 [chap-import-geometry-file]: {% link en/_tutorial_sonnblick_events/04_import_geometry_data.md %}#opening-the-geometry-editor
