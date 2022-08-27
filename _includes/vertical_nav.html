@@ -2,20 +2,28 @@
 {% assign doc_entry_page = site.data["ml"][page.lang]["collections"][doc_collection] | where: "layout", "doc_page_entry" %}
 {% assign doc_entry_page = doc_entry_page[0] %}
 {% assign chapters = site.data["ml"][page.lang]["collections"][doc_collection] | where: "type", "chapter" %}
+
 <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
-  <li>
+  {% assign chapter_is_active_class = "" %}
+  {% if doc_entry_page.title == page.title %}
+      {% assign chapter_is_active_class = "is-active" %}
+  {% endif %}
+  <li class="{{ chapter_is_active_class }}">
     <a href="{{ doc_entry_page.url }}">{{ doc_entry_page.title }}</a>
-    {% assign submenu_class = "" %}
     {% if doc_entry_page.title == page.title or doc_entry_page.namespace == page.parent %}
-      {% assign submenu_class = "is-active" %}
+
     {% endif %}
   </li>
   
-    {% for cur_chapter in doc_entry_page.chapters %}
+  {% for cur_chapter in doc_entry_page.chapters %}
+        {% assign chapter_is_active_class = "" %}
         {% assign chapter_page = chapters | where: "slug", cur_chapter %}
         {% assign chapter_page = chapter_page[0] %}
         {% assign children = site.data.ml[page.lang].collections[doc_collection] | where: "parent", chapter_page.namespace %}
-        <li>
+        {% if chapter_page.title == page.title %}
+            {% assign chapter_is_active_class = "is-active" %}
+        {% endif %}
+        <li class="{{ chapter_is_active_class }}">
             <a href="{{chapter_page.url }}">{{ chapter_page.title }}</a>
             {% assign submenu_class = "" %}
             {% if chapter_page.title == page.title or chapter_page.namespace == page.parent %}
