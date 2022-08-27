@@ -62,9 +62,9 @@ figures:
         caption: Get the log filename from the currently running process in the log area.
             
 ---
-Psysmon provides so-called *looper collection nodes* that allow the creation of iterative execution of the *looper child* nodes. Currently the `time window looper` and the `event looper` are available. For the task to compute the power spectral density (PSD) for the whole data set we will use the `time window looper` which enables the processing of sliding time windows.
+psysmon provides so-called *looper collection nodes* that allow the creation of iterative execution of the *looper child* nodes. Currently the `time window looper` and the `event looper` are available. For the task to compute the power spectral density (PSD) for the whole data set we will use the `time window looper` which enables the processing of sliding time windows.
 
-The aim of the PSD computation is to create long-term spectrogram images of the complete data set. Therefore we will first compute the PSD for 15 minute long time windows with an overlap of 50 % and then use these PSDs to create the spectrogram images for the desired timespan.
+The aim of the PSD computation is to create long-term spectrogram images of the complete data set. Therefore we will first compute the PSD for 15 minute long time windows with an overlap of 50 % and then use these PSDs to create the spectrogram images for the desired time span.
 
 ## Create the output directory
 We will save the PSD data in a dedicated output directory for later use. Create the directory `psd_data` in the `psysmon_output` folder of the tutorial directory structure.
@@ -85,7 +85,7 @@ stefan@hausmeister:~/tutorial/psysmon_output$
 ## Create the psd collection
 Create a collection named *psd* and add the collection node `time window looper` to the collection. Then select the `time window looper` node in the collection listbox and add the `processing stack` and then the `compute PSD` looper collection node. Both of these nodes are `looper children` and will be added to the time window looper as sub-nodes.
 
-The time window looper splits the specified time range into time windows and for each time window, the child nodes of the looper are executed.
+The time window looper splits a selected time range into time windows and for which the child nodes of the looper are executed individually.
 
 {% include insert_image.html key="create-psd-collection" %}
 
@@ -122,7 +122,7 @@ window overlap
 Set the following preferences in the `output` panel:
 
 output directory
-: The `tutorial/psysmon_output/psd_data` directory on your filesystem.
+: The `tutorial/psysmon_output/psd_data` directory on your file system.
 
 {% include insert_image.html key="looper-output-preferences" %}
 
@@ -133,17 +133,17 @@ Select the `processing stack` node in the sub-tree of the time window looper and
 
 {% include insert_image.html key="open-child-preferences" %}
 
-The preferences dialog of the `processing stack` child node will open.
+The preferences dialog of the `processing stack` child node opens.
 
-The `processing stack` is the same as the one that we already encountered in the tracedisplay when screening the seismic data. Add the `convert to sensor units` processing node to the processing stack using the `add` button and selecting the node from the opening dialog.
+The `processing stack` is the same as the one that we already encountered in the tracedisplay when screening the seismic data. Click the `add` button in the preferences dialog to open another dialog with all the available processing nodes. Select the `convert to sensor units` processing node and add it to the processing stack using the `add` button.
 
 {% include insert_image.html key="select-processing-node" %}
 
-The processing node will be added to the processing stack in the preferences dialog.
+The processing node is now added to the processing stack in the preferences dialog.
 
 {% include insert_image.html key="ps-with-convert-node" %}
 
-The `convert to sensor units` will convert the counts of the digital seismogram to the sensor input unit of the sensor specified in the geometry file. For the sensors used in the tutorial data set these unit is velocity (m/s). The conversion is done using the preamplification and bitweight of the data recorder and the sensitivity of the sensor. The effects of the transfer function of the sensor are not removed.
+The `convert to sensor units` converts the counts of the digital seismogram to the sensor input unit specified in the geometry file. The sensor input unit for the tutorial data set is velocity (m/s). The conversion employs the preamplification and bitweight of the data recorder, and the sensitivity of the sensor. The effects of the transfer function of the sensor are not removed.
 
 The conversion from counts to sensor units is important to relate the computed PSD data to the global noise models when creating the spectrogram images.
 
@@ -151,15 +151,11 @@ The conversion from counts to sensor units is important to relate the computed P
 ## Configure the compute PSD child node
 Select the `compute PSD` node in the collection node and open the preferences editor using the context menu.
 
+The `compute PSD` node uses the [matplotlib.mlab.psd][mlab-psd]{:target="blank"} function of matplotlib to compute the PSD data. It uses the Welch's average periodogram method to compute the PSD for a long time series. The vector of data points passed to the psd function is divided into segments with a length of `nfft` samples. An overlap can be specified for the segments. You can check the source code of the `compute PSD` node in the [psysmon github repository][psysmon-github]{:target="blank"} for more details about the computation.
 
+We will use the default values for this node. The `nfft` value sets the number of spectral points used for the Fourier Transform and the `fft overlap` gives the overlap of these segments used in the Welch's average periodogram method. The `nfft` length and the `fft overlap` is not related to the time window length and overlap of the time window looper. For our example the PSD will be computed for each 900 seconds long time window which the time window looper passes to the `compute PSD` node. 
 
-The preferences dialog of the `compute PSD` child node will open. 
-
-The `compute PSD` node uses the [matplotlib.mlab.psd][mlab-psd]{:target="blank"} function of matplotlib to compute the PSD data. It uses the Welch's average periodogram method to compute the PSD for a long time series. The vector of data points passed to the psd function is divided into segments with a lenght of `nfft` samples. An overlap can be specified for the segments. You can check the source code of the `compute PSD` node in the [psysmon github repository][psysmon-github]{:target="blank"} for more details about the computation.
-
-We will use the default values for this node. The `nfft` value sets the number of spectral points used for the Fast Fourier Transform and the `fft overlap` gives to overlap of these segments used in the Welch's average periodogram method. The `nfft` length and the `fft overlap` is not related to the time window length and overlap of the time window looper. For our example the PSD will be computed for each 900 seconds long time window which the time window looper passes to the `compute PSD` node. 
-
-Check the values and make shure that the values are the following:
+Check the values and make sure that the values are the following:
 
 nfft
 : 8192
@@ -179,7 +175,7 @@ To start the computation of the PSD data, execute the collection by clicking the
 The collection will create a directory structure in the output directory of the `time window looper` where the PSD data is saved as Python [shelve][python-shelve]{:target="blank"} files.
 
 ## Tracking a process using the log file
-You can track an collection execution process using the Linux tail command. First, get the filename of the log file of the process that you want to check. It is built using the name of the process with the `.log` file suffix. In the screenshot given below, the running process has the name `psd_20220808_152407_255098`, so the related log file can be found in the directory `psysmon_projects/tutorial/log` of your tutorial directory structure. Use the `-f` flag of the tail command to follow the updates of the log file.
+You can track a collection execution process using the Linux tail command. First, get the filename of the log file of the process that you want to check. It is built using the process name and the `.log` file suffix. The screenshot below shows the log file output of the running process with the name `psd_20220808_152407_255098`. The process log files can be found in the directory `psysmon_projects/tutorial/log` of your tutorial directory structure. Use the `-f` flag of the tail command to follow the updates of the log file.
 
 {% include insert_image.html key="check-log-file" %}
 
@@ -197,7 +193,7 @@ stefan@hausmeister:~/tutorial/psysmon_projects/tutorial/log$
 ~~~
 
 ## The PSD output data
-The psd collection will save the computation results in a directory structure within the output directory specified in the `time window looper` node. The data is saved in hourly files organized in daily directories for each selected component. These data files will be used as an input for the computation of the long-term spectrogram images.
+The psd collection saves the computation results in a directory structure within the output directory specified in the `time window looper` node. The data is saved in hourly files organized in daily directories for each selected component. These data files are used as an input for the computation of the long-term spectrogram images.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper$ tree -L 2 psd

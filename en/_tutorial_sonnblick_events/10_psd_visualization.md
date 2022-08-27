@@ -47,7 +47,7 @@ figures:
         label: fig:spectrogram-whole-mor
         number: 6
         filename: whole_20181025_20181102_XX_MOR_A_DPZ.png
-        caption: The spectrogram of the whole time span of component XX:MOR:A:DPZ. The vertical white lines starting around hour 130 indicate the data gaps that have already been notices when computing the data availability.
+        caption: The spectrogram of the whole time span of component XX:MOR:A:DPZ. The vertical white lines starting around hour 130 show the data gaps which were already visible in the data availability plots.
         
     preferences-plot-weekly:
         label: fig:preferences-plot-weekly
@@ -67,7 +67,7 @@ figures:
         filename: weekly_20181029_20181105_XX_MIT_A_DPZ.png
         caption: The weekly spectrogram of component XX:MIT:A:DPZ starting on 2018-10-29.
 ---
-The PSD data computed in the chapter [Power Spectral Density][chap-psd-compute] is used to create a spectrograms for various time spans. We will create a daily and weekly spectrograms, as well as one for the whole range of available data.
+The PSD data computed in the chapter [Power Spectral Density][chap-psd-compute] is used to create a spectrograms for various time spans. We will create a daily and weekly spectrograms, as well as one for the whole time range of available data.
 
 ## Create the output directory
 We will save the spectrogram images in a dedicated output directory. Create the directory `psd_images` in the `psysmon_output` folder of the tutorial directory structure.
@@ -85,20 +85,20 @@ stefan@hausmeister:~/tutorial/psysmon_output$
 ~~~
 
 ## Create the psd visualization collection
-Create a collection named *psd visualization* and add the collection node `create psd images* to the collection.
+Create a collection named *psd visualization* and add the collection node `create psd images` to the collection.
 
 {% include insert_image.html key="create-collection" %}
 
 ## Edit the create psd images preferences
-Open the `create psd images` preferences dialog using the context menu in the collection listbox. Enter the following parameters and confirm them by clicking the `OK` button.
+Open the `create psd images` preferences dialog using the context menu in the collection listbox. Enter the following parameters in the three available pages and confirm them by clicking the `OK` button.
 
-### input
+### select input
 
 psd data directory
 : Select the output directory of the [psd computation][chap-psd-compute] collection. The directory *containing* the psd directory has to be selected. In my case this directory is located in `/home/stefan/tutorial/psysmon_output/psd_data/smi-mr.sm-psysmon-tutorial-psd_20220809_134207_310452-time_window_looper`.
 
 start time
-: The start time from which the visualization should start (2018-10-25T00:00:00).
+: The start time of the visualization (2018-10-25T00:00:00).
 
 end time
 : The end time of the visualization (2018-11-02T00:00:00).
@@ -111,7 +111,7 @@ SCNL
 ### plot parameters
 
 plot mode
-: The mode of the separation of the timespan (whole).
+: The fragmentation of the selected time span. An image is created for each fragment (whole).
 
 with average plot
 : Add an average plot to the spectrograms (checked).
@@ -132,10 +132,10 @@ output directory
 {% include insert_image.html key="preferences-output" %}
 
 ## Execute the collection
-Execute the collection by clicking the `execute` button and check the process execution in `processes` tab of the log area.
+Execute the collection by clicking the `execute` button and check the process execution in the  `processes` tab of the log area.
 
 ## Inspect the output
-In the specified output directory one spectrogram image for each selected component of the whole time range should have been created.
+The successfully executed collection creates for each selected component a spectrogram image for the given time span and saves it in the specified output directory.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ tree -L 4
@@ -152,7 +152,7 @@ stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ tree -L 4
 stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ 
 ~~~
 
-The Spectrogram images should look like the following images.
+The spectrogram images should look like the following images.
 
 {% include insert_image.html key="spectrogram-whole-mit" %}
 
@@ -163,7 +163,7 @@ Reopen the preferences dialog of the `create psd images` collection node and cha
 
 {% include insert_image.html key="preferences-plot-weekly" %}
 
-Execute the collection and check the images created in the output directory. The weekly images should have been added.
+Execute the collection and check the weekly images created in the output directory. The weekly images should have been added.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ tree -L 4
@@ -184,7 +184,7 @@ stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ tree -L 4
 stefan@hausmeister:~/tutorial/psysmon_output/psd_images$ 
 ~~~
 
-The two weekly spectrogram images of component XX:MIT:A:DPZ should look like the follwing two images. The weekly plots always start on Monday.
+The two weekly spectrogram images of component XX:MIT:A:DPZ should look like the follwing two images. The weekly plots always start on a Monday.
 
 {% include insert_image.html key="spectrogram-weekly-mit-1" %}
 

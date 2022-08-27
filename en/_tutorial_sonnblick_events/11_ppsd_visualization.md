@@ -3,7 +3,7 @@ title: "Probability Power Spectral Density"
 layout: doc_chapter
 subheadline: "Creating probability power spectral density plots."
 description: "Creating probability power spectral density plots."
-teaser: "The PPSD plots are a well known method to assess the data quality of seismic data. The PPSD data computed with psysmon can be used to create PPSD plots for various time spans."
+teaser: "The Probability Power Spectral Density (PPSD) plots are a well known method to assess the data quality of seismic data. The PPSD data computed with psysmon can be used to create PPSD plots for various time spans."
 image_dir: tut_sbe/ppsd_visualization
 
 namespace: tut_sbe_ppsd_visualization
@@ -75,13 +75,13 @@ figures:
         
 ---
 
-A standard procedure when analyzing the seismic data is to compute a spectrogram and the probability power spectral density (PPSD) of the recorded data {% cite mcnamara_ambient_2004 %}. This gives a good overview of the general behaviour of the ambient seismic noise and periods with changes in the frequency or amplitude characteristics can be easily identified. It also provides a good temporal compression without loosing significant information and large datasets can be screened very fast for phases of special interest.
+A standard procedure when analyzing the seismic data is to compute spectrograms and the probability power spectral density (PPSD) of the recorded data {% cite mcnamara_ambient_2004 %}. This gives a good overview of the general behaviour of the ambient seismic noise and reveals periods with changes in the frequency or amplitude characteristics. It also provides a good temporal compression without loosing significant information and large data sets can be screened very fast for phases of special interest.
 
 The `compute PPSD` looper child node provides the computation of the PPSD images using the [obspy PPSD][obspy-ppsd]{:target="blank"} class. In contrast to the computation of the PSD, the PPSD computation is not yet split into creating the data first and then the images. The images and the data are created by the `compute PPSD` looper child node in one go.
 
 
 ## Create the output directory
-Again we will create an output directory to save the data of the PPSD computation. Create the directory `ppsd` in the `psysmon_output` directory of the tutorial directory structure.
+Again, create an output directory to save the data of the PPSD computation. Create the directory `ppsd` in the `psysmon_output` directory of the tutorial directory structure.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output$ mkdir ppsd
@@ -96,19 +96,19 @@ stefan@hausmeister:~/tutorial/psysmon_output$ tree -L 1
 stefan@hausmeister:~/tutorial/psysmon_output$ 
 ~~~
 
-## Create the ppsd collection node
-Create a collection node named `ppsd` and add the collection node `time window looper` to the collection. Then select the `time window looper` node in the collection listbox and add the `processing stack` and then the `compute PPSD` looper collection node. Both of these nodes are `looper children` and will be added to the time window looper as sub-nodes.
-
-The goal is to compute daily PPSD images for your data set.
-
-The time window looper splits the specified time range into time windows and for each time window, the child nodes of the looper are executed.
+## Create the ppsd collection
+Create a collection named `ppsd` and add the collection node `time window looper` to the collection. Then select the `time window looper` node in the collection listbox and add the `processing stack` and then the `compute PPSD` looper collection node. Both of these nodes are `looper children` and will be added to the time window looper as child-nodes. Check the correct order of the child-nodes. The 'processing stack' should be on top of the 'compute PPSD' node.
 
 {% include insert_image.html key="create-ppsd-collection" %}
 
 ## Configure the time window looper
 Open the preferences editor of the `time window looper` using the context menu.
 
-As mentioned above, we aim for daily sliding time windows. The window length and window overlap is not relevant for the daily window mode and th We will set the time window looper preferences accordingly. To keep the execution fast, we will select only the components MIT:XX:A:DPZ and MOR:XX:A:DPZ.
+The time window looper splits the specified time range into time windows and executes the child-nodes for each time window.
+
+The goal is to compute daily PPSD images for your data set.
+
+To keep the execution fast, select only the two components MIT:XX:A:DPZ and MOR:XX:A:DPZ.
 
 ### Components
 Set the following preferences in the `components` panel:
@@ -147,12 +147,12 @@ output directory
 
 
 ### Processing
-For this time, we will use chunked processing to create the PPSD images. Chunked processing splits up the window length selected for each sliding window of the time window looper in chunks with length `chunk window length`. If lopper child nodes support chunked processing (`compute ppsd` does), the chunks are processed and accumulated by the child node to produce one single result per sliding window.
+For this time, chunked processing is used to create the PPSD images. Chunked processing splits up the time windows of the `time window looper`. The individual chunks with length `chunk window lenght` are subsequently fed to the child-nodes. If a looper child node support chunked processing, like `compute ppsd` does, the chunks are processed individually and accumulated by the child node to produce one single result per sliding window.
 
-If chunked processing is not supported by the child node, each passed data chunk will be handled in non-chunked mode.
+When loading data for long sliding windows (e.g. daily or weekly), the chunked processing option reduces the memory demand and increases execution speed. If chunked processing is not supported by the child node, each passed data chunk will be handled individually without considering an accumulation of the chunks.
 
-Using chunked mode is useful to handle memory and execution speed issues when loading data for long sliding windows (e.g. daily or weekly). In our example, the daily time windows of the `time window looper` will be split up into chunks with a length of 3600 seconds. Only the data for one chunk will be loaded and then fed to the looper child nodes. The processing stack will apply the selected processing nodes to the individual chunk. No chunked processing is supported by the processing stack. 
-The `compute PPSD` looper child node will add the chunk to the obspy PPSD computation until all chunks of a looper time window are processed. At the end, a PPSD image of the daily time window will be created.
+In our example, the daily time windows of the `time window looper` will be split up into chunks with a length of 3600 seconds. Only the data of one chunk will be loaded and then fed to the looper child nodes. The processing stack applys the selected processing nodes to the individual chunk. No chunked processing is supported by the processing stack. 
+The `compute PPSD` looper child node adds the chunk to the obspy PPSD computation until all chunks of a looper time window are processed. At the end, one PPSD image of the daily time window is created.
 
 Set the following preferences in the `processing` panel:
 
@@ -167,7 +167,7 @@ chunk window length
 
 ## Configure the processing stack child node
 
-Select the `processing stack` node in the sub-tree of the time window looper and open the preferences editor using the context menu. The preferences dialog of the `processing stack` child node will open.
+Select the `processing stack` node in the sub-tree of the time window looper and open the preferences editor using the context menu.
 
 The `processing stack` is the same as the one that we already encountered in the tracedisplay when screening the seismic data. Add the `convert to sensor units` processing node to the processing stack using the `add` button and selecting the node from the opening dialog.
 
@@ -220,7 +220,7 @@ To start the computation of the PPSD images and data, execute the ppsd collectio
 The `compute ppsd` child node will create a directory structure in the specified output directory where the PPSD images and the related data is saved.
 
 ## The PPSD output data
-The PPSD images and data are save as daily files in the specified output directory.
+The PPSD images and data are saved as daily files in the specified output directory.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output/ppsd/smi-mr.sm-psysmon-tutorial-ppsd_20220810_144656_496132-time_window_looper/ppsd$ tree -L 3

@@ -3,7 +3,7 @@ title: "Characteristic parameters"
 layout: doc_chapter
 subheadline: "Extract features characterizing an event."
 description: "Extract features characterizing an event."
-teaser: "For each detected event, characteristic amplitude parameters are computed which can be used to search for similarities amoung the individual events."
+teaser: "For each detected event, characteristic amplitude parameters are computed which can be used to search for similarities among the individual events."
 image_dir: tut_sbe/characteristic_parameters
 
 namespace: tut_sbe_characteristic_parameters
@@ -104,7 +104,7 @@ No filters are used. Keep the empty default values.
 {% include insert_image.html key="looper-prefs-filter" %}
 
 ### processing
-Select the `whole` processing interval. This loads all events of the selected timespan and then iterates them. In case of long looper time spans and a large set of events it is useful to split the time span to process into smaller intervals.
+Select the `whole` processing interval. This loads all events of the selected time span and then iterates them. In case of long looper time spans and a large set of events it is useful to split the time span to process into smaller intervals.
 
 {% include insert_image.html key="looper-prefs-processing" %}
 

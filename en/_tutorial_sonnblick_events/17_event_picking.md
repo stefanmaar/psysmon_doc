@@ -81,7 +81,7 @@ Load the `display` collection and execute it to open the `tracedisplay` window.
 {% include insert_image.html key="collection-display" %}
 
 ## Display event with id 60
-Open the event selector using the menu `Display->show events`. Load the events for the day 2018-10-26 by setting the `Detection time span` parameters, selecting the `tutorial` event catalog and clicking the `load events` button.
+Open the event selector using the menu `Display->show events`. Load the events for the day 2018-10-26 by setting the `Detection time span` parameters, selecting the `tutorial` event catalog, and clicking the `load events` button.
 
 Select the event with id 60 and start_time 2018-10-26T01:40:17.041250 to display the corresponding seismogram data.
 
@@ -101,10 +101,10 @@ Open the pick tool preferences by selecting the menu `Tools->Preferences->pick`.
 ## Activate the pick tool
 Activate the pick tool using the menu `Tools->pick`. The cursor will change to a `cross` to indicate the active tool.
 
-{% include insert_image.html key="tracdisplay-activate-pick" %}
+{% include insert_image.html key="tracedisplay-activate-pick" %}
 
 ## Create time picks
-You will create picks labeled `e` (for event). Changel the `label` in the pick preferences to `e`.
+You will create picks labeled `e` (for event). Change the `label` in the pick preferences to `e`.
 
 Next start picking in the seismogram views. The picks will be added as vertical lines with the label on top. The red color of the pick line indicates, that the pick is associated with an event.
 
@@ -179,7 +179,7 @@ stefan@hausmeister:~/tutorial/psysmon_output$
 ~~~
 
 ## Configure the export event picks node
-As you only have the picks for one event, you don't have to care about the amount of picks exported. Select the whole tutorial time span for the export to export all available picks.
+As you only have the picks for one event, you don't have to care about the amount of picks exported. Select the whole tutorial time span to export all available picks.
 
 ### events
 Select the events for which to export the picks. Use the complete time span of the tutorial data set and select the `tutorial` event catalog.
@@ -210,7 +210,7 @@ Select the path to the `event_picks` directory in your tutorial directory struct
 Close the `export event picks` preferences window.
 
 ## Export the picks to CSV
-Make shure, that the `export event` and `event looper` nodes are disabled and only the `export event picks` is enabled. Click the `execute` button to run the collection. The event picks will be saved in a CSV file in the specified output directory.
+Make sure, that the `export event` and `event looper` nodes are disabled and only the `export event picks` is enabled. Click the `execute` button to run the collection. The event picks will be saved in a CSV file in the specified output directory.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output$ cd event_picks

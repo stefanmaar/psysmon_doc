@@ -3,7 +3,7 @@ title: "Detection binding"
 layout: doc_chapter
 subheadline: "Combining single trace detections to seismic events."
 description: "Combining single trace detections to seismic events."
-teaser: "The result of a STA/LTA detection run are signals detected on single traces related to the channel of a seismic station. Detection binding is used to combine these single trace detections to events using temporal constraints."
+teaser: "The result of a STA/LTA detection run are signals detected on single traces related to the channel of a seismic station. Detection binding combines these single trace detections to events using temporal and spatial constraints."
 image_dir: tut_sbe/detection_binding
 
 namespace: tut_sbe_detection_binding
@@ -56,15 +56,12 @@ figures:
         caption: The preferences of the detection binding looper child node.
     
 ---
-The STA/LTA detection is a single trace process which results in a series of detections associated with a single data stream of a station. Usually the seismic network should be designed, that the seismic events of interest are recorded at multiple stations to enable a localization of the event source. For the detection binding this assumption is used to bind multiple detections occurring at a similar time to an event. So an event in psysmon exists of multiple detections.
+The STA/LTA detection is a single trace process which results in a series of detections associated with a single trace of a station. Usually, the seismic network should be designed, that the seismic events of interest are recorded at multiple stations to enable a localization of the event source. For the detection binding this assumption is used to bind multiple detections occurring at a similar time and on neighboring stations to an event. So an event in psysmon exists of multiple detections.
 
-Again, the result of the detection binding, which is a set of events, is saved in the database.
-
-For the event binding process, first an event catalog has to be created and then the detection binding will be done using the time window looper. The detections created in the [STA/LTA detection chapter][chap-stalta-detection] are needed for this step.
-
+The events resulting from the detection binding are stored in the database.
 
 ## Database event tables
-The database tables relevant for the detection binding are PREFIX_event_catalog, PERFIX_event and PREFIX_detection_to_event (replace PREFIX with the project name, e.g. tutorial).
+The database tables relevant for the detection binding are PREFIX_event_catalog, PREFIX_event and PREFIX_detection_to_event (replace PREFIX with the project name, e.g. tutorial).
 
 ~~~console
 stefan@hausmeister:~$ mycli -u tutorial
@@ -131,6 +128,8 @@ stefan@hausmeister:~$
 ~~~
 
 ## Adding an event catalog
+For the event binding process, first an event catalog has to be created and then the detection binding will be done using the time window looper. The detections created in the [STA/LTA detection chapter][chap-stalta-detection] are needed for this step.
+
 Open the 'catalogs' collection and disable the `edit detection catalogs` node in the collection. Then add the collection node `edit event catalogs` to the collection.
 
 {% include insert_image.html key="catalogs-collection" %}
@@ -184,7 +183,7 @@ Leave the `use chunked processing` checkbox unchecked.
 ## Configure the detection binding
 The detection binding searches the detections sorted by their start time. For every first item in the list, other detections with a start time within a given time window relative to the start time of the first detection are combined to an event. The search window is computed using the inter-station distances and a constant velocity. 
 
-Another constraint that is checked, is that detecions of a common event cluster around neighboring stations.
+Another constraint that is checked, is that detecitons of a common event cluster around neighboring stations.
 
 
 | parameter              | value    |
@@ -199,16 +198,16 @@ Another constraint that is checked, is that detecions of a common event cluster 
 
 {% include insert_image.html key="binding-preferences" %}
 
-### Paramter description
+### Parameter description
 
 detection catalog
 : The database detection catalog holding the detections used for the detection binding.
 
 event catalog
-: The database event catalog to which the events should be writen.
+: The database event catalog to which the events are written.
 
 min. detection length
-: Skip detections with a lengh smaller than the min. detection length [s].
+: Skip detections with a length smaller than the min. detection length [s].
 
 neighbors to search
 : The number of neighbors to search for a matching detections to declare a valid event. The neighbors are sorted by the inter-station distance to the station of the investigated detection.
@@ -224,14 +223,14 @@ search window extend
 
 
 ## Start the detection binding
-Execute the collection using the `Execute` button. The detection binding process will be started and the created events will be written to the database table `tutorial_event`. Check the process status in the `processes` tab of the `log area`. You can check the log file to follow the process execution.
+Execute the collection using the `Execute` button. The detection binding process is started and the created events are written to the database table `tutorial_event`. Check the process status in the `processes` tab of the `log area`. You can check the log file to follow the process execution.
 
 Wait until the detection binding process has finished. It took about 8 seconds on my system.
 
 ## Check the database tables
 Again use a MySQL client to check the data added to the database.
 
-In the commands below I'm first selecting the `psysmon_tutorial` database. Then I'm setting the time_zone to UTC to make sure, that the `from_unixtime` command, that I'm using to convert the start_time timestamp, outputs the UTC time string. Next I'm showing the content of the event_catalog and then I'm displaying the last 10 entries in the events table (sorted by the start time in descending order).
+In the commands below I'm first selecting the `psysmon_tutorial` database. Then I'm setting the time_zone to UTC to make sure, that the `from_unixtime` command, that I'm using to convert the start_time timestamp, outputs the UTC time string. Next I'm showing the content of the event_catalog, and then I'm displaying the last 10 entries in the events table (sorted by the start time in descending order).
 
 Finally I'm checking if the earthquake, that was used for the [interactive determination of the detection parameters][chap-stalta-interactive], was detected. The earthquake first onsets were recorded at ca. 2018-10-25T22:57:31. So we can expect an event around that time, and it is indeed listed in the event table.
 

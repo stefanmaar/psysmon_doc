@@ -3,7 +3,7 @@ title: "Visual event check"
 layout: doc_chapter
 subheadline: "Checking the detected events in tracedisplay."
 description: "Checking the detected events in tracedisplay."
-teaser: "Tracedisplay can be used to acces the events in the database and visualize the related data.."
+teaser: "Tracedisplay can be used to access the events in the database and visualize the related data.."
 image_dir: tut_sbe/visual_event_check
 
 namespace: tut_sbe_visual_event_check
@@ -88,12 +88,12 @@ Select the event with id 32 and start time 2018-10-25T22:57:31.938750. The time 
 
 {% include insert_image.html key="tracedisplay-earthquake-event" %}
 
-The grey area marks the time limits of the detected event and the light read areas highlight the detections on the individual traces.
+The grey area marks the time limits of the detected event and the light red areas highlight the detections on the individual traces.
 
 You can use the arrow keys in the events table of the event selector to browse through the detected events.
 
 ## Another event example
-Another interesting event is the event with the start time 2018-10-26T01:40:17. To view this event change the `start time` in the event selector to 2018-10-26T00:00:00 and click the `load events` button to reload the events. The select the event with id 60 and start time 2018-10-26T01:40:17.041250 to show the event data.
+Another interesting event is the event with the start time 2018-10-26T01:40:17. To view this event change the `start time` in the event selector to 2018-10-26T00:00:00 and click the `load events` button to reload the events. Then select the event with id 60 and start time 2018-10-26T01:40:17.041250 to show the event data.
 
 {% include insert_image.html key="tracedisplay-example-event" %}
 

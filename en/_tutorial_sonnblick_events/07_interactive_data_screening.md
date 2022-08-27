@@ -3,7 +3,7 @@ title: "Data screening"
 layout: doc_chapter
 subheadline: "Interactive screening of the imported data."
 description: "Interactive screening of the imported data."
-teaser: "With psysmon it is easy to interactively screen through the seismic dataset. Doing this gives a first overview of the data quality and eventual seismic events."
+teaser: "With psysmon it is easy to interactively screen through a seismic data set to get a first overview of the data quality and the seismic activity."
 image_dir: tut_sbe/data_screening
 
 namespace: tut_sbe_data_screening
@@ -35,7 +35,7 @@ figures:
         label: fig:tracedisplay-initial
         number: 4
         filename: screenshot_tracedisplay_initial.png
-        caption: The inital view of tracedisplay after the opening of the tracedisplay dialog. The display of the seismograms might be wrong because of an issue with the initial resizing of the window. You can fix the problem by refreshing the view using the key r.
+        caption: The view of tracedisplay after the opening of the tracedisplay dialog. The display of the seismograms might be erroneous because of an issue with the initial resizing of the window. You can fix the problem by refreshing the view using the key r.
         
     tracedisplay-initial-refresh:
         label: fig:tracedisplay-initial-refresh
@@ -116,7 +116,7 @@ figures:
         caption: The lowpass filter applied to the data.
         
 ---
-The interactive screening of a dataset is a main application of psysmon. The dataset can be examined using various visualization techniques (e.g. seismogram, spectrogram) and custom visualization plugins can be added easily. This enables the test of new algorithms or processing methods on a complete real-world data set.
+The interactive screening of a dataset is a main application of psysmon. The dataset can be examined using various visualization techniques (e.g. seismogram, spectrogram) and custom visualization plugins can be added easily. This enables testing new algorithms or processing methods on a complete real-world data set.
 
 
 ## Create the display collection
@@ -141,7 +141,9 @@ display mode
 : network
 
 stations
-: MIT:XX:A, MOR:XX:A (hold the `CTRL` key to select multiple single stations, 'SHIFT' for a range)
+: MIT:XX:A, MOR:XX:A
+
+  (hold the `CTRL` key to select multiple single stations, `SHIFT` for a range)
 
 array
 : This field is disabled
@@ -156,7 +158,7 @@ sort station
 
 
 ## Execute the collection
-Execute the `display` collection by clicking the `execute` button. The `tracedisplay` dialog will appear. The initial view shows the seismograms of the selected channesl. It might happen, that the first view shows a strange zig-zag pattern. This is because of an issue with the first resizing of the dialog window. You can fix this problem by refreshing the display using the menu `Control->refresh views` or by using the shortcut key `r`.
+Execute the `display` collection by clicking the `execute` button and the `tracedisplay` dialog will appear. The initial view shows the seismograms of the selected channels. It might happen, that the first view shows a strange zig-zag pattern. This is because of an issue with the initial resizing of the dialog window. You can fix this problem by refreshing the display using the menu `Control->refresh views` or by using the shortcut key `R`.
 
 {% include insert_image.html key="tracedisplay-initial" %}
 
@@ -176,7 +178,7 @@ You can use the `+` and `-` keys to zoom in or out of the data. Again using the 
 You can use the datetime and duration edit fields on top of the tracedisplay window (just below the menu bar) to select a time range to display.
 
 ## Using shortcuts
-The tracedisplay dialog provides shortcuts for frequently used commands and options. The shortcuts are listend besides the menu entries in the submenus of the menu bar. For example, use `CTRL+E` to toggle the spectrogram view.
+The tracedisplay dialog provides shortcuts for frequently used commands and options. The shortcuts are listed besides the menu entries in the submenus of the menu bar. For example, use `CTRL+E` to toggle the spectrogram view.
 
 {% include insert_image.html key="tracedisplay-shortcuts" %}
 
@@ -189,13 +191,13 @@ The preferences of the spectrogram view will open as a docking frame on the righ
 
 {% include insert_image.html key="tracedisplay-spectrogram-preferences" %}
 
-You can toggle the preferences docking frame using the preferences menu entry (e.g. `View->Preferences->Spectrogram`) or the related shortcut (e.g. `ALT-E`). You can also close it using the close button on the top right of the preferences docking frame. There you also have a maximize button which you can use to maximize the docking frame for a better accesibility of the preference items.
+You can toggle the display of the preferences docking frame using the preferences menu entry (e.g. `View->Preferences->Spectrogram`) or the related shortcut (e.g. `ALT-E`). You can also close it using the close button on the top right of the preferences docking frame. There you also have a maximize button which you can use to maximize the docking frame for a better accessibility of the preference items.
 
 {%include insert_image.html key="tracedisplay-spectrogram-preferences-maximized" %}
 
 You can resize the docking frame by click-and-drag of the border between the preferences docking frame and the tracedisplay view frame. The tracedisplay view frame is the part of the tracedisplay window showing the seismograms and spectrograms.
 
-You also have the option to click and drage the preferences docking frame using its title bar. This will undock the preferences frame from the tracedisplay window. You can use it as a separate window on your display or dock it at another position to the tracedisplay window.
+You also have the option to click and drag the preferences docking frame using its title bar. This will undock the preferences frame from the tracedisplay window. You can use it as a separate window on your display or dock it at another position to the tracedisplay window.
 
 {% include insert_image.html key="tracedisplay-spectrogram-preferences-docked-top" %}
 

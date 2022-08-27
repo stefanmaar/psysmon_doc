@@ -104,7 +104,7 @@ figures:
         caption: The seismogram image file of the earthquake event. The grey area highlights the event limits, the red area indicates the detections related to the event.
 
 ---
-The events and detections saved in the psysmon database can be exported to a CSV file for further data analysis. Additionally psysmon supports the export of the waveform data of the events.
+The events and detections saved in the psysmon database can be exported to a CSV file for further data analysis. Additionally, psysmon supports the export of the waveform data of the events.
 
 ## Create the output directories
 For the event export you should create two output directories in the tutorial directory structure: `event_list` and `event_data`
@@ -126,8 +126,8 @@ stefan@hausmeister:~/tutorial/psysmon_output$ tree -L 1
 stefan@hausmeister:~/tutorial/psysmon_output$ 
 ~~~
 
-## Export the event list
-To export the event list, first create a new collection named `export` and add the `export events` collection node.
+## Export the event lists
+To export the event lists, first create a new collection named `export` and add the `export events` collection node. The `export events` node creates a list of events and a list of the related detections for a selected time span.
 
 {% include insert_image.html key="collection-export" %}
 
@@ -153,15 +153,15 @@ Leave the filter settings unchanged.
 
 
 ### output
-Select the `event_list` folder created above and `whole` for the output interval. The ouput interval determines the splitting of the ouput to individual files. Using `whole` will create one file for all events and detections.
+Select the `event_list` folder created above and `whole` for the output interval. The output interval determines the splitting of the output to individual files. Using `whole` will create one file for all events and detections.
 
 {% include insert_image.html key="export-prefs-output" %}
 
 Close the preferences dialog.
 
 
-## Export the events to CSV
-Click the `execute` button to run the collection. The CSV files of the event- and detecition list will be created in the specified output directory.
+## Export the events to CSV files
+Click the `execute` button to run the collection. The CSV files of the event- and detection list will be created in the specified output directory.
 
 ~~~console
 stefan@hausmeister:~/tutorial/psysmon_output$ cd event_list
@@ -211,7 +211,7 @@ id,start_time,end_time,channel,catalog,event_id,event_start_time,event_end_time
 ~~~
 
 ## Exporting the event waveform
-The looper collection node `export waveform data` provides the export of data of a given timespan. The data can be exported in a format supported by obspy. Addidionally images of the waveforms will be created.
+The looper collection node `export waveform data` provides the export of data of a given time span. The data can be exported in a format supported by obspy. Additionally, images of the waveforms will be created.
 
 To export the event waveform data the `event looper` is used. This looper iterates through a list of events specified in the preferences. The `processing stack` child node is added to detrend the data before exporting it using the `export waveform data` child node.
 
@@ -271,14 +271,14 @@ We will export the event data in miniseed format with the metadata of the origin
 
 | parameter                    | value     |
 |------------------------------|-----------|
-| file forma                   | MSEED     |
+| file format                  | MSEED     |
 | apply geometry               | unchecked |
 | apply geometry to seismogram | checked   |
 
 {% include insert_image.html key="export-waveform-format" %}
 
 ### Time-span
-Add 60 secondes before and after the exported event timespan.
+Add 60 seconds before and after the exported event time span.
 
 {% include insert_image.html key="export-waveform-timespan" %}
 
@@ -295,7 +295,7 @@ Start the export of the events by clicking the `execute` button. The waveform da
 ## Check the exported event data
 The waveform data is written to a directory structure split up into julian days. For each event a directory is created in the julian day directory. Inside the event directory an image file with the seismogram data and the minissed data in a dedicated directory structure is available.
 
-The selected timespan of this tutorial should have resulted in the export of the following two events. One of them is the earthquake with the event start time 2018-10_-25T22:57:31.938750 and event ID 32.
+The selected time span of this tutorial should have resulted in the export of the following two events. One of them is the earthquake with the event start time 2018-10_-25T22:57:31.938750 and event ID 32.
 
 ~~~console
 stefan@hausmeister:~/tutorial$ cd psysmon_output/event_data/
